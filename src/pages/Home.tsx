@@ -105,10 +105,12 @@ export function HomePage() {
   return (
     <div>
       {/* Hero Section */}
-      <section className="text-center py-20 bg-gradient-to-b from-white to-muted">
-        <div className="container mx-auto">
-          <h1 className="text-5xl font-bold">Prestige Strategies</h1>
-          <p className="text-xl text-muted-foreground mt-4">
+      <section className="text-center py-12 md:py-20 bg-gradient-to-b from-white to-muted">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <h1 className="text-4xl md:text-5xl font-bold">
+            Prestige Strategies
+          </h1>
+          <p className="text-lg md:text-xl text-muted-foreground mt-4">
             Your Partner in Human Resources and Business Strategy
           </p>
           <div className="mt-8 flex justify-center gap-4">
@@ -123,8 +125,8 @@ export function HomePage() {
       </section>
 
       {/* Services Grid */}
-      <section className="py-20">
-        <div className="container mx-auto">
+      <section className="py-12 md:py-20">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-3xl font-bold text-center">Our Services</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-8">
             {services.map((service) => (
@@ -147,7 +149,7 @@ export function HomePage() {
 
       {/* Featured Training Section */}
       <section className="bg-muted">
-        <div className="container mx-auto py-20">
+        <div className="container mx-auto py-12 md:py-20 px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
             <div className="order-2 md:order-1">
               <img
@@ -164,7 +166,7 @@ export function HomePage() {
                 professionals and managers will equip you with the skills for
                 the modern workplace.
               </p>
-              <Button asChild className="mt-6">
+              <Button asChild size="lg" className="mt-6">
                 <Link to="/e-learning">Learn More</Link>
               </Button>
             </div>
@@ -173,13 +175,13 @@ export function HomePage() {
       </section>
 
       {/* Testimonials Preview */}
-      <section className="py-20">
-        <div className="container mx-auto">
+      <section className="py-12 md:py-20">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-3xl font-bold text-center">
             What Our Clients Say
           </h2>
           <Carousel
-            className="mt-8 w-full max-w-4xl mx-auto"
+            className="mt-8 w-full max-w-xs sm:max-w-xl md:max-w-2xl lg:max-w-4xl mx-auto"
             plugins={[plugin.current]}
             onMouseEnter={plugin.current.stop}
             onMouseLeave={plugin.current.reset}

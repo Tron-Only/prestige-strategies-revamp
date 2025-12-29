@@ -96,10 +96,10 @@ const services = [
 export function ServicesPage() {
   return (
     <div>
-      <section className="text-center py-20 bg-gradient-to-b from-white to-muted">
-        <div className="container mx-auto">
-          <h1 className="text-5xl font-bold">Our Services</h1>
-          <p className="text-xl text-muted-foreground mt-4">
+      <section className="text-center py-12 md:py-20 bg-gradient-to-b from-white to-muted">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <h1 className="text-4xl md:text-5xl font-bold">Our Services</h1>
+          <p className="text-lg md:text-xl text-muted-foreground mt-4">
             Comprehensive solutions to empower your business
           </p>
         </div>
@@ -110,7 +110,7 @@ export function ServicesPage() {
           key={service.title}
           className={index % 2 === 0 ? "bg-white" : "bg-muted"}
         >
-          <div className="container mx-auto py-20">
+          <div className="container mx-auto py-12 md:py-20 px-4 sm:px-6 lg:px-8">
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-center">
               <div className="flex justify-center md:col-span-1">
                 {service.icon}
