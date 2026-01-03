@@ -1,4 +1,3 @@
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import {
   Briefcase,
   Building,
@@ -96,7 +95,7 @@ const services = [
 export function ServicesPage() {
   return (
     <div>
-      <section className="text-center py-12 md:py-20 bg-gradient-to-b from-white to-muted">
+      <section className="text-center py-12 md:py-20 bg-linear-to-b from-white to-muted">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <h1 className="text-4xl md:text-5xl font-bold">Our Services</h1>
           <p className="text-lg md:text-xl text-muted-foreground mt-4">
@@ -120,7 +119,7 @@ export function ServicesPage() {
                 <ul className="mt-4 space-y-2">
                   {service.points.map((point, i) => (
                     <li key={i} className="flex items-start">
-                      <CheckCircle className="w-5 h-5 text-primary mr-3 mt-1 flex-shrink-0" />
+                      <CheckCircle className="w-5 h-5 text-primary mr-3 mt-1 shrink-0" />
                       <span className="text-muted-foreground">{point}</span>
                     </li>
                   ))}

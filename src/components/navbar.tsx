@@ -3,12 +3,10 @@ import {
   NavigationMenuItem,
   NavigationMenuList,
 } from "@/components/ui/navigation-menu";
-import { cn } from "@/lib/utils";
 import { MountainIcon, Menu } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { SheetHeader } from "@/components/ui/sheet";
 import { SheetTitle } from "@/components/ui/sheet";
-import React from "react";
 import { Link } from "react-router-dom";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 
