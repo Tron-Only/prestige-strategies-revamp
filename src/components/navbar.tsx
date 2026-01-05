@@ -11,13 +11,11 @@ import { Link } from "react-router-dom";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 
 const navLinks = [
-  { to: "/about", label: "About us" },
   { to: "/services", label: "Services" },
+  { to: "/about", label: "About us" },
   { to: "/resources", label: "Resources" },
   { to: "/events", label: "Events" },
   { to: "/e-learning", label: "E-learning" },
-  { to: "/upload-cv", label: "Upload CVs" },
-  { to: "/testimonials", label: "Testimonials" },
 ];
 
 export function Navbar() {
@@ -34,12 +32,12 @@ export function Navbar() {
           <NavigationMenuList className="gap-2">
             <NavigationMenuItem>
               <Button asChild variant="ghost" className="text-sm font-medium">
-                <Link to="/about">About us</Link>
+                <Link to="/services">Services</Link>
               </Button>
             </NavigationMenuItem>
             <NavigationMenuItem>
               <Button asChild variant="ghost" className="text-sm font-medium">
-                <Link to="/services">Services</Link>
+                <Link to="/about">About us</Link>
               </Button>
             </NavigationMenuItem>
             <NavigationMenuItem>
@@ -61,16 +59,6 @@ export function Navbar() {
         </NavigationMenu>
         <NavigationMenu>
           <NavigationMenuList className="gap-2">
-            <NavigationMenuItem>
-              <Button asChild variant="ghost" className="text-sm font-medium">
-                <Link to="/upload-cv">Upload CVs</Link>
-              </Button>
-            </NavigationMenuItem>
-            <NavigationMenuItem>
-              <Button asChild variant="ghost" className="text-sm font-medium">
-                <Link to="/testimonials">Testimonials</Link>
-              </Button>
-            </NavigationMenuItem>
             <NavigationMenuItem>
               <Button
                 asChild

@@ -18,6 +18,7 @@ import {
 } from "lucide-react";
 import React from "react";
 import Autoplay from "embla-carousel-autoplay";
+import TrustLogos from "@/components/TrustLogos";
 
 const services = [
   {
@@ -105,22 +106,29 @@ export function HomePage() {
   return (
     <div>
       {/* Hero Section */}
-      <section className="text-center py-12 md:py-20 bg-gradient-to-b from-white to-muted">
+      <section className="text-center py-12 md:py-20 bg-background">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <h1 className="text-4xl md:text-5xl font-bold">
             Prestige Strategies
           </h1>
-          <p className="text-lg md:text-xl text-muted-foreground mt-4">
-            Your Partner in Human Resources and Business Strategy
+          <p className="text-lg md:text-xl text-muted-foreground mt-4 max-w-3xl mx-auto">
+            Trusted HR, payroll, and talent solutions that help Kenyan
+            organisations scale with confidence.
           </p>
-          <div className="mt-8 flex justify-center gap-4">
-            <Button asChild size="lg">
-              <Link to="/services">Our Services</Link>
+          <div className="mt-8 flex flex-col sm:flex-row justify-center gap-4">
+            <Button asChild size="lg" className="hero-cta">
+              <Link to="/services">Explore Services</Link>
             </Button>
-            <Button asChild size="lg" variant="secondary">
-              <Link to="/contact">Contact Us</Link>
+            <Button asChild size="lg" variant="default">
+              <Link to="/contact">Book a Consultation</Link>
             </Button>
           </div>
+          <p className="mt-4 text-sm text-muted-foreground">
+            Prefer to talk? Call us:{" "}
+            <a href="tel:+254700000000" className="text-primary font-medium">
+              +254 700 000 000
+            </a>
+          </p>
         </div>
       </section>
 
@@ -174,8 +182,9 @@ export function HomePage() {
         </div>
       </section>
 
+      <TrustLogos />
       {/* Testimonials Preview */}
-      <section className="py-12 md:py-20">
+      <section id="testimonials" className="py-12 md:py-20">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-3xl font-bold text-center">
             What Our Clients Say
@@ -192,15 +201,15 @@ export function HomePage() {
                   <div className="p-1">
                     <Card className="h-full">
                       <CardContent className="pt-6 flex flex-col items-center text-center h-full">
-                        <p className="text-lg flex-grow">
+                        <p className="text-lg flex-grow leading-relaxed">
                           "{testimonial.quote}"
                         </p>
-                        <div className="mt-4">
+                        <figcaption className="mt-4">
                           <p className="font-semibold">{testimonial.author}</p>
                           <p className="text-sm text-muted-foreground">
                             {testimonial.company}
                           </p>
-                        </div>
+                        </figcaption>
                       </CardContent>
                     </Card>
                   </div>
