@@ -9,7 +9,6 @@ import {
   Calendar,
   Mail,
 } from "lucide-react";
-import React from "react";
 
 /**
  * AboutPage

@@ -15,19 +15,6 @@ type TrustLogosProps = {
   showHeading?: boolean;
 };
 
-/**
- * TrustLogos
- *
- * A small, accessible "Trusted by" logo grid used on home / landing pages.
- * - Accepts a custom `logos` array; otherwise uses a sensible default derived
- *   from the reference sites you provided.
- * - Logos are lazy-loaded and have an `onError` fallback to a simple placeholder.
- * - Links open in a new tab with `rel="noopener noreferrer"` for safety.
- *
- * Example usage:
- * <TrustLogos />
- * <TrustLogos logos={[{ name: 'Acme', src: 'https://logo.clearbit.com/acme.com' }]} />
- */
 export function TrustLogos({
   logos,
   title = "Trusted by organizations across sectors",
