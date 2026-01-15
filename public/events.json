@@ -1,0 +1,100 @@
+[
+  {
+    "title": "Orientation: Intro to Prestige",
+    "start": "2026-02-10",
+    "description": "Full-day orientation. Edit this file to change details.",
+    "location": "Training Room A"
+  },
+  {
+    "title": "Advanced Excel for Analysts",
+    "start": "2026-02-15T13:00:00",
+    "end": "2026-02-15T16:00:00",
+    "description": "Pivot tables, Power Query, automation tips.",
+    "instructor": "Jane Doe",
+    "capacity": 20,
+    "url": "https://example.com/resources/excel-guide.pdf"
+  },
+  {
+    "title": "Leadership Bootcamp (Day 1)",
+    "start": "2026-03-01T09:00:00",
+    "end": "2026-03-03T17:00:00",
+    "description": "Multi-day bootcamp.",
+    "location": "Conference Centre A"
+  },
+  {
+    "title": "Data Visualization with Tableau",
+    "start": "2026-02-20T10:00:00",
+    "end": "2026-02-20T14:00:00",
+    "description": "Learn to create interactive dashboards and reports.",
+    "instructor": "John Smith",
+    "capacity": 15,
+    "url": "https://example.com/resources/tableau-tutorial.pdf"
+  },
+  {
+    "title": "Project Management Fundamentals",
+    "start": "2026-02-25T09:00:00",
+    "end": "2026-02-25T17:00:00",
+    "description": "Introduction to Agile and Scrum methodologies.",
+    "location": "Training Room B",
+    "capacity": 25
+  },
+  {
+    "title": "Cybersecurity Awareness",
+    "start": "2026-03-05T13:00:00",
+    "end": "2026-03-05T15:00:00",
+    "description": "Protecting data and preventing breaches.",
+    "instructor": "Alice Johnson",
+    "capacity": 30,
+    "url": "https://example.com/resources/cybersecurity-guide.pdf"
+  },
+  {
+    "title": "Team Building Workshop",
+    "start": "2026-03-10",
+    "description": "Interactive activities to build team cohesion.",
+    "location": "Outdoor Pavilion",
+    "capacity": 50
+  },
+  {
+    "title": "Advanced Python Programming",
+    "start": "2026-03-15T09:00:00",
+    "end": "2026-03-15T16:00:00",
+    "description": "Data analysis, machine learning basics.",
+    "instructor": "Bob Lee",
+    "capacity": 20,
+    "url": "https://example.com/resources/python-advanced.pdf"
+  },
+  {
+    "title": "Marketing Strategies Seminar",
+    "start": "2026-03-20T10:00:00",
+    "end": "2026-03-20T12:00:00",
+    "description": "Digital marketing trends and tactics.",
+    "location": "Conference Centre B",
+    "capacity": 40
+  },
+  {
+    "title": "Financial Planning for Managers",
+    "start": "2026-03-25T14:00:00",
+    "end": "2026-03-25T17:00:00",
+    "description": "Budgeting, forecasting, and financial decision-making.",
+    "instructor": "Carol White",
+    "capacity": 18,
+    "url": "https://example.com/resources/finance-planning.pdf"
+  },
+  {
+    "title": "AI Ethics and Bias Training",
+    "start": "2026-04-01T09:00:00",
+    "end": "2026-04-01T12:00:00",
+    "description": "Understanding ethical implications of AI.",
+    "location": "Training Room C",
+    "capacity": 22
+  },
+  {
+    "title": "Public Speaking Mastery",
+    "start": "2026-04-05T13:00:00",
+    "end": "2026-04-05T16:00:00",
+    "description": "Techniques for effective presentations.",
+    "instructor": "David Kim",
+    "capacity": 15,
+    "url": "https://example.com/resources/speaking-tips.pdf"
+  }
+]
