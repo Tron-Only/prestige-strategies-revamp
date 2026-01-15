@@ -1,13 +1,17 @@
 import { Outlet } from "react-router-dom";
 import { Navbar } from "./components/navbar";
+import { Footer } from "./components/footer";
 import "./index.css";
 
 export function App() {
   return (
-    <main className="bg-background text-foreground">
+    <div className="flex flex-col min-h-screen bg-background text-foreground">
       <Navbar />
-      <Outlet />
-    </main>
+      <main className="grow">
+        <Outlet />
+      </main>
+      <Footer />
+    </div>
   );
 }
 

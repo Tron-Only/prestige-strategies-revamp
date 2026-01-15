@@ -17,21 +17,21 @@
 */
 :root {
   /* Foundation */
-  --background: #e8f6ff; /* soft light-blue page background */
-  --foreground: #05233a; /* dark navy text for high contrast */
-  --card: #ffffff; /* cards are white by default */
-  --card-foreground: #05233a;
+  --background: #f0f8ff;
+  --foreground: #0d1b2a;
+  --card: #ffffff;
+  --card-foreground: #0d1b2a;
 
   /* Surfaces / overlays */
   --popover: #ffffff;
-  --popover-foreground: #05233a;
+  --popover-foreground: #0d1b2a;
 
   /* Primary (buttons, links) */
-  --primary: #0066d6; /* main CTA blue */
+  --primary: #007bff;
   --primary-foreground: #ffffff;
 
-  /* Secondary / accents (optional purple) */
-  --secondary: #6b3dff; /* vivid purple accent */
+  /* Secondary / accents */
+  --secondary: #6c757d;
   --secondary-foreground: #ffffff;
 
   /* Muted / subdued text */
@@ -39,7 +39,7 @@
   --muted-foreground: #4b5563;
 
   /* Accent and others */
-  --accent: #00a6a6; /* teal accent for highlights if needed */
+  --accent: #00a6a6;
   --accent-foreground: #ffffff;
 
   /* Destructive (danger) */
@@ -48,7 +48,7 @@
   /* UI borders and inputs */
   --border: rgba(8, 23, 42, 0.06);
   --input: rgba(8, 23, 42, 0.06);
-  --ring: rgba(0, 102, 214, 0.18);
+  --ring: rgba(0, 123, 255, 0.18);
 
   /* Chart palette */
   --chart-1: #68a5ff;
@@ -60,7 +60,7 @@
   /* Radii and sidebar */
   --radius: 0.25rem;
   --sidebar: #ffffff;
-  --sidebar-foreground: #05233a;
+  --sidebar-foreground: #0d1b2a;
 
   /* Misc */
   --sidebar-primary: var(--primary);

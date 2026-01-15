@@ -21,91 +21,71 @@ const navLinks = [
 
 export function Navbar() {
   return (
-    <header className="flex items-center justify-between px-4 md:px-8 py-4 border-b">
-      <Link to="/" className="flex items-center gap-2">
-        <MountainIcon className="h-8 w-8 text-primary" />
-        <span className="text-lg font-bold">Prestige Strategies</span>
-      </Link>
+    <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+      <div className="container flex h-14 items-center">
+        <Link to="/" className="flex items-center gap-2">
+          <MountainIcon className="h-8 w-8 text-primary" />
+          <span className="text-lg font-bold">Prestige Strategies</span>
+        </Link>
 
-      {/* Desktop Navigation */}
-      <div className="hidden md:flex items-center gap-4">
-        <NavigationMenu>
-          <NavigationMenuList className="gap-2">
-            <NavigationMenuItem>
-              <Button asChild variant="ghost" className="text-sm font-medium">
-                <Link to="/services">Services</Link>
-              </Button>
-            </NavigationMenuItem>
-            <NavigationMenuItem>
-              <Button asChild variant="ghost" className="text-sm font-medium">
-                <Link to="/about">About us</Link>
-              </Button>
-            </NavigationMenuItem>
-            <NavigationMenuItem>
-              <Button asChild variant="ghost" className="text-sm font-medium">
-                <Link to="/resources">Resources</Link>
-              </Button>
-            </NavigationMenuItem>
-            <NavigationMenuItem>
-              <Button asChild variant="ghost" className="text-sm font-medium">
-                <Link to="/events">Events</Link>
-              </Button>
-            </NavigationMenuItem>
-            <NavigationMenuItem>
-              <Button asChild variant="ghost" className="text-sm font-medium">
-                <Link to="/e-learning">E-learning</Link>
-              </Button>
-            </NavigationMenuItem>
-            <NavigationMenuItem>
-              <Button asChild variant="ghost" className="text-sm font-medium">
-                <Link to="/jobs">Jobs</Link>
-              </Button>
-            </NavigationMenuItem>
-          </NavigationMenuList>
-        </NavigationMenu>
-        <NavigationMenu>
-          <NavigationMenuList className="gap-2">
-            <NavigationMenuItem>
-              <Button
-                asChild
-                variant="default"
-                className="text-sm font-medium bg-primary text-white hover:brightness-90"
-              >
-                <Link to="/contact">Contact us</Link>
-              </Button>
-            </NavigationMenuItem>
-          </NavigationMenuList>
-        </NavigationMenu>
-      </div>
-
-      {/* Mobile Navigation */}
-      <div className="md:hidden">
-        <Sheet>
-          <SheetTrigger asChild>
-            <Button variant="ghost" size="icon">
-              <Menu className="h-6 w-6" />
-            </Button>
-          </SheetTrigger>
-          <SheetContent side="right" className="w-full sm:max-w-xs">
-            <SheetHeader className="p-6">
-              <SheetTitle>Menu</SheetTitle>
-            </SheetHeader>
-            <nav className="flex flex-col gap-4 py-8 px-6">
+        {/* Desktop Navigation */}
+        <div className="hidden md:flex items-center gap-4 ml-auto">
+          <NavigationMenu>
+            <NavigationMenuList className="gap-2">
               {navLinks.map((link) => (
-                <Link
-                  key={link.to}
-                  to={link.to}
-                  className="text-lg font-medium hover:text-primary"
-                >
-                  {link.label}
-                </Link>
+                <NavigationMenuItem key={link.to}>
+                  <Button
+                    asChild
+                    variant="ghost"
+                    className="text-sm font-medium"
+                  >
+                    <Link to={link.to}>{link.label}</Link>
+                  </Button>
+                </NavigationMenuItem>
               ))}
-              <Button asChild size="lg" variant="default" className="mt-4">
-                <Link to="/contact">Contact us</Link>
+            </NavigationMenuList>
+          </NavigationMenu>
+          <Button asChild variant="default" className="text-sm font-medium">
+            <Link to="/contact">Contact us</Link>
+          </Button>
+        </div>
+
+        {/* Mobile Navigation */}
+        <div className="md:hidden ml-auto">
+          <Sheet>
+            <SheetTrigger asChild>
+              <Button variant="ghost" size="icon">
+                <Menu className="h-6 w-6" />
               </Button>
-            </nav>
-          </SheetContent>
-        </Sheet>
+            </SheetTrigger>
+            <SheetContent side="right" className="w-full">
+              <SheetHeader>
+                <SheetTitle>
+                  <Link to="/" className="flex items-center gap-2">
+                    <MountainIcon className="h-8 w-8 text-primary" />
+                    <span className="text-lg font-bold">
+                      Prestige Strategies
+                    </span>
+                  </Link>
+                </SheetTitle>
+              </SheetHeader>
+              <nav className="flex flex-col gap-4 py-8">
+                {navLinks.map((link) => (
+                  <Link
+                    key={link.to}
+                    to={link.to}
+                    className="text-lg font-medium hover:text-primary"
+                  >
+                    {link.label}
+                  </Link>
+                ))}
+                <Button asChild size="lg" variant="default" className="mt-4">
+                  <Link to="/contact">Contact us</Link>
+                </Button>
+              </nav>
+            </SheetContent>
+          </Sheet>
+        </div>
       </div>
     </header>
   );

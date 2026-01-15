@@ -146,15 +146,6 @@ export function TrustLogos({
     // eslint-disable-next-line
   }, [items.length, hoveredIndex, visibleCount]);
 
-  // Calculate the visible logos for the carousel (for accessibility, not for rendering)
-  function getVisibleLogos() {
-    const result: Logo[] = [];
-    for (let i = 0; i < visibleCount; i++) {
-      result.push(items[(Math.floor(offset / LOGO_TOTAL) + i) % items.length]);
-    }
-    return result;
-  }
-
   // Removed unused variable 'visibleLogos'
 
   return (

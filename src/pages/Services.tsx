@@ -8,28 +8,13 @@ import {
   Users,
   Building,
   Briefcase,
-  Zap,
-} from "lucide-react";
+ } from "lucide-react";
 import {
   Accordion,
   AccordionItem,
   AccordionTrigger,
   AccordionContent,
 } from "@/components/ui/accordion";
-
-/**
- * ServicesPage
- *
- * Revamped services landing page:
- * - Hero with concise value proposition and CTA
- * - Services grid with short descriptions and contact CTA
- * - Engagement models section explaining how we work
- * - Integrations overview (Workday, HR systems, payroll providers)
- * - FAQ section with common questions
- *
- * The markup is semantic and accessible (headings, lists, and <details> for FAQs).
- * Visual styling relies on existing Tailwind / theme tokens defined in `index.css`.
- */
 
 const SERVICES = [
   {
@@ -38,11 +23,6 @@ const SERVICES = [
     icon: <FileCheck className="w-10 h-10 text-primary" />,
     blurb:
       "Comprehensive reviews of HR processes, policies and records to identify compliance gaps and opportunities for efficiency.",
-    highlights: [
-      "Labour law compliance checks",
-      "HR file & policy review",
-      "Risk mitigation recommendations",
-    ],
   },
   {
     key: "strategic-planning",
@@ -50,11 +30,6 @@ const SERVICES = [
     icon: <Lightbulb className="w-10 h-10 text-primary" />,
     blurb:
       "Align people strategy to business goals with workforce planning, succession planning and measurable KPIs.",
-    highlights: [
-      "Workforce gap analysis",
-      "Succession & career path frameworks",
-      "Performance metric design",
-    ],
   },
   {
     key: "payroll",
@@ -62,11 +37,6 @@ const SERVICES = [
     icon: <Calculator className="w-10 h-10 text-primary" />,
     blurb:
       "End-to-end payroll processing, statutory filings and benefits administration so you can reduce risk and operational overhead.",
-    highlights: [
-      "Monthly payroll processing & payslips",
-      "Statutory contributions & filings",
-      "Benefits administration",
-    ],
   },
   {
     key: "recruitment",
@@ -74,11 +44,6 @@ const SERVICES = [
     icon: <Users className="w-10 h-10 text-primary" />,
     blurb:
       "Targeted recruitment for permanent and contract roles with screening, interviewing and shortlisting managed for you.",
-    highlights: [
-      "Sourcing & screening",
-      "Video interview coordination",
-      "Offer & onboarding support",
-    ],
   },
   {
     key: "training",
@@ -86,11 +51,6 @@ const SERVICES = [
     icon: <Building className="w-10 h-10 text-primary" />,
     blurb:
       "Custom learning programs to uplift your managers and teams — from leadership to technical HR skills.",
-    highlights: [
-      "Needs analysis & tailored curricula",
-      "Blended delivery (virtual & onsite)",
-      "Post-training evaluation",
-    ],
   },
   {
     key: "manpower",
@@ -98,177 +58,83 @@ const SERVICES = [
     icon: <Briefcase className="w-10 h-10 text-primary" />,
     blurb:
       "Flexible staffing solutions for scaling projects — temporary, contract or long-term placements.",
-    highlights: [
-      "Rapid deployment of vetted workers",
-      "Payroll & statutory handling for temp staff",
-      "Scalable workforce models",
-    ],
-  },
-];
-
-const ENGAGEMENTS = [
-  {
-    title: "Retainer (Ongoing HR Partner)",
-    description:
-      "Dedicated HR support tailored to your business. Ideal for organisations that need continuous advisory, policy maintenance and operational HR support.",
-    bullets: [
-      "Monthly SLA-based support",
-      "Quarterly strategy review",
-      "Priority access to consultants",
-    ],
-  },
-  {
-    title: "Project-based (Fixed Scope)",
-    description:
-      "Short-term engagements for discrete projects — audits, payroll migrations, handbook creation, or a recruitment drive.",
-    bullets: [
-      "Clear scope & timeline",
-      "Fixed fee or milestone billing",
-      "Delivered with project governance",
-    ],
-  },
-  {
-    title: "Per-hire / Contingency",
-    description:
-      "Pay only for successful hires. We source, screen and present shortlisted candidates for your approval.",
-    bullets: [
-      "No hire, no fee (terms apply)",
-      "Dedicated recruitment consultant",
-    ],
-  },
-  {
-    title: "Managed Services (MSP / RPO)",
-    description:
-      "End-to-end recruitment or staffing delivery for high-volume or enterprise needs, including compliance, payroll and onboarding.",
-    bullets: ["Scalable delivery", "Reporting & SLA-driven outcomes"],
   },
 ];
 
 const FAQS = [
   {
-    question: "Will AI replace HR jobs in 2026?",
-    answer: (
-      <>
-        No, not the strategic ones. It’ll annihilate routine tasks freeing a
-        person form high-touch stuff like culture-building.
-      </>
-    ),
+    question: "What is the typical timeline for a recruitment process?",
+    answer:
+      "Our standard recruitment process takes between 2 to 4 weeks, from initial consultation to the candidate's first day. We can expedite this for urgent roles.",
   },
   {
-    question:
-      "How do I start with skills-based hiring without overhauling everything?",
-    answer: (
-      <>
-        Start slowly, rewrite 2-3 job postings to emphasize skills, use free AI
-        tools for assessments, and pilot with one team.
-      </>
-    ),
+    question: "How do you ensure compliance with Kenyan labor laws?",
+    answer:
+      "Our team of experts stays up-to-date with the latest labor laws and regulations. We conduct regular audits and provide guidance to ensure your organization is fully compliant.",
   },
   {
-    question: "What's the ROI on mental health initiatives?",
-    answer: (
-      <>
-        Massive, up to four times returns via lower absenteeism and higher
-        output. Start with surveys to pinpoint needs, then layer in apps or
-        workshops.
-      </>
-    ),
+    question: "What is the cost of your services?",
+    answer:
+      "Our pricing is tailored to the specific needs of each client. We offer a range of engagement models, from project-based fees to monthly retainers. Contact us for a custom quote.",
   },
   {
-    question: "Is pay transparency a must?",
-    answer: (
-      <>
-        Increasingly, yes, at it builds equity. Roll out bands via town halls;
-        it cuts negotiation drama and boosts trust.
-      </>
-    ),
-  },
-  {
-    question: "How do I measure success for these trends?",
-    answer: (
-      <>
-        KPIs like eNPS for experience, turnover rates for well-being, and AI ROI
-        via productivity metrics. Tools like predictive analytics will make
-        tracking a breeze.
-      </>
-    ),
+    question: "Do you offer training for remote teams?",
+    answer:
+      "Yes, we offer a variety of virtual training programs designed to engage and upskill remote employees. We can also create custom programs to meet the specific needs of your team.",
   },
 ];
 
 export function ServicesPage() {
   return (
-    <main>
-      {/* Hero */}
-      <section className="py-12 md:py-20 bg-background">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="text-4xl md:text-5xl font-bold">
-            Services that make HR simple and strategic
+    <>
+      {/* Hero Section */}
+      <section className="relative h-[500px] flex items-center justify-center text-center text-white">
+        <div
+          className="absolute inset-0 bg-cover bg-center"
+          style={{
+            backgroundImage:
+              "url(https://picsum.photos/seed/services/1600/900)",
+            filter: "brightness(0.4)",
+          }}
+        />
+        <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8">
+          <h1 className="text-4xl md:text-6xl font-extrabold tracking-tight">
+            Our Services
           </h1>
-          <p className="mt-4 text-lg text-muted-foreground max-w-3xl mx-auto">
-            We combine local expertise and global best practices to deliver HR,
-            payroll, recruitment and training solutions that reduce risk and
-            accelerate growth.
+          <p className="mt-4 text-lg md:text-xl max-w-3xl mx-auto">
+            We provide a comprehensive range of HR services to help you achieve
+            your business goals.
           </p>
-
-          <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-3">
-            <Button asChild className="hero-cta">
-              <Link to="/contact">Request a Consultation</Link>
-            </Button>
-            <Button asChild variant="default">
-              <Link to="/resources">Download capability deck</Link>
-            </Button>
-          </div>
         </div>
       </section>
 
-      {/* Services grid */}
-      <section className="py-12 md:py-20">
+      {/* Services Section */}
+      <section className="py-16 sm:py-24">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl font-bold text-center">Our core services</h2>
-          <p className="text-center text-muted-foreground mt-2 max-w-2xl mx-auto">
-            Practical, measurable HR services that support organisations at
-            every stage of growth.
-          </p>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-8">
-            {SERVICES.map((s) => (
-              <Card key={s.key} className="p-4">
-                <CardHeader className="flex items-center gap-4">
-                  <div className="flex-none">{s.icon}</div>
-                  <CardTitle className="text-lg">{s.title}</CardTitle>
+          <div className="text-center">
+            <h2 className="text-3xl font-extrabold tracking-tight sm:text-4xl">
+              How We Can Help
+            </h2>
+            <p className="mt-4 text-lg text-muted-foreground">
+              Explore our services to find the right solution for your business.
+            </p>
+          </div>
+          <div className="mt-12 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+            {SERVICES.map((service) => (
+              <Card key={service.key} className="text-center">
+                <CardHeader>
+                  <div className="flex justify-center items-center h-16 w-16 mx-auto bg-primary/10 rounded-full">
+                    {service.icon}
+                  </div>
                 </CardHeader>
                 <CardContent>
-                  <p className="text-muted-foreground mb-3">{s.blurb}</p>
-                  <ul className="mb-4 space-y-2 text-sm">
-                    {s.highlights.map((h) => (
-                      <li key={h} className="flex items-start gap-2">
-                        <span className="text-primary mt-1">
-                          <CheckMark />
-                        </span>
-                        <span className="text-muted-foreground">{h}</span>
-                      </li>
-                    ))}
-                  </ul>
-
-                  <div className="flex gap-2">
-                    <Button asChild size="sm" className="hero-cta">
-                      <Link to="/contact">Get started</Link>
-                    </Button>
-                    <Button
-                      asChild
-                      size="sm"
-                      variant="ghost"
-                      className="text-sm"
-                    >
-                      <a
-                        href={`mailto:info@prestigestrategies.co.ke?subject=Inquiry: ${encodeURIComponent(
-                          s.title,
-                        )}`}
-                      >
-                        Email us
-                      </a>
-                    </Button>
-                  </div>
+                  <CardTitle className="text-xl font-semibold">
+                    {service.title}
+                  </CardTitle>
+                  <p className="mt-2 text-muted-foreground">{service.blurb}</p>
+                  <Button asChild size="sm" className="mt-4">
+                    <Link to="/contact">Learn More</Link>
+                  </Button>
                 </CardContent>
               </Card>
             ))}
@@ -276,107 +142,53 @@ export function ServicesPage() {
         </div>
       </section>
 
-      {/* Engagement models */}
-      <section className="py-12 md:py-20 bg-muted">
+      {/* FAQ Section */}
+      <section className="bg-muted py-16 sm:py-24">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl font-bold text-center">How we engage</h2>
-          <p className="text-center text-muted-foreground mt-2 max-w-2xl mx-auto">
-            Flexible engagement models to match your needs and budget.
-          </p>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mt-8">
-            {ENGAGEMENTS.map((e) => (
-              <article
-                key={e.title}
-                className="bg-card flex flex-col h-full p-6 rounded-lg border shadow-sm"
-                aria-labelledby={slugify(e.title)}
-              >
-                <div className="flex-1 flex flex-col">
-                  <h3 id={slugify(e.title)} className="text-lg font-semibold">
-                    {e.title}
-                  </h3>
-                  <p className="text-muted-foreground mt-2">{e.description}</p>
-                  <ul className="mt-3 space-y-1 text-sm">
-                    {e.bullets.map((b) => (
-                      <li key={b} className="flex items-start gap-2">
-                        <span className="text-primary mt-1">
-                          <CheckMark />
-                        </span>
-                        <span className="text-muted-foreground">{b}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </article>
-            ))}
+          <div className="text-center">
+            <h2 className="text-3xl font-extrabold tracking-tight sm:text-4xl">
+              Frequently Asked Questions
+            </h2>
+            <p className="mt-4 text-lg text-muted-foreground">
+              Find answers to common questions about our services.
+            </p>
           </div>
-        </div>
-      </section>
-
-      {/* FAQs */}
-      <section className="py-12 md:py-20 bg-background">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl font-bold text-center">
-            Frequently Asked Questions
-          </h2>
-          <p className="text-center text-muted-foreground mt-2 max-w-2xl mx-auto">
-            Answers to common questions about our services, pricing and
-            delivery.
-          </p>
-
-          {/* FAQ Accordion - full width, single column, accessible */}
-          <div className="mt-8 max-w-2xl mx-auto">
+          <div className="mt-12 max-w-2xl mx-auto">
             <Accordion type="single" collapsible className="w-full">
               {FAQS.map((faq, idx) => (
                 <AccordionItem key={idx} value={`faq-${idx}`}>
-                  <AccordionTrigger className="text-base font-medium">
+                  <AccordionTrigger className="text-base font-medium text-left">
                     {faq.question}
                   </AccordionTrigger>
-                  <AccordionContent>{faq.answer}</AccordionContent>
+                  <AccordionContent className="text-base text-muted-foreground">
+                    {faq.answer}
+                  </AccordionContent>
                 </AccordionItem>
               ))}
             </Accordion>
           </div>
+        </div>
+      </section>
 
-          <div className="mt-8 text-center">
-            <Button asChild className="hero-cta">
-              <Link to="/contact">Still have a question? Contact us</Link>
+      {/* Closing CTA Section */}
+      <section className="py-16 sm:py-24">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h2 className="text-3xl font-extrabold tracking-tight sm:text-4xl">
+            Let's Work Together
+          </h2>
+          <p className="mt-4 text-lg text-muted-foreground">
+            Contact us today to learn more about how we can help your business
+            succeed.
+          </p>
+          <div className="mt-8">
+            <Button asChild size="lg">
+              <Link to="/contact">Get in Touch</Link>
             </Button>
           </div>
         </div>
       </section>
-    </main>
+    </>
   );
-}
-
-/* Small inline icon used for list bullets (keeps file self-contained) */
-function CheckMark() {
-  return (
-    <svg
-      width="16"
-      height="16"
-      viewBox="0 0 24 24"
-      fill="none"
-      aria-hidden
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      <path
-        d="M20 6L9 17L4 12"
-        stroke="currentColor"
-        strokeWidth="2"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-    </svg>
-  );
-}
-
-/* Utility: simple slugify for aria ids */
-function slugify(text: string) {
-  return text
-    .toLowerCase()
-    .replace(/\s+/g, "-")
-    .replace(/[^\w-]/g, "");
 }
 
 export default ServicesPage;

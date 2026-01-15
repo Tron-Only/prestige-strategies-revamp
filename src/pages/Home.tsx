@@ -104,14 +104,22 @@ export function HomePage() {
   );
 
   return (
-    <div>
+    <>
       {/* Hero Section */}
-      <section className="text-center py-12 md:py-20 bg-background">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <h1 className="text-4xl md:text-5xl font-bold">
-            Prestige Strategies
+      <section className="relative h-[600px] flex items-center justify-center text-center text-white">
+        <div
+          className="absolute inset-0 bg-cover bg-center"
+          style={{
+            backgroundImage:
+              "url(https://picsum.photos/seed/business/1600/900)",
+            filter: "brightness(0.4)",
+          }}
+        />
+        <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8">
+          <h1 className="text-4xl md:text-6xl font-extrabold tracking-tight">
+            Empowering Your Business with Strategic HR Solutions
           </h1>
-          <p className="text-lg md:text-xl text-muted-foreground mt-4 max-w-3xl mx-auto">
+          <p className="mt-4 text-lg md:text-xl max-w-3xl mx-auto">
             Trusted HR, payroll, and talent solutions that help Kenyan
             organisations scale with confidence.
           </p>
@@ -119,35 +127,39 @@ export function HomePage() {
             <Button asChild size="lg" className="hero-cta">
               <Link to="/services">Explore Services</Link>
             </Button>
-            <Button asChild size="lg" variant="default">
+            <Button asChild size="lg" variant="secondary">
               <Link to="/contact">Book a Consultation</Link>
             </Button>
           </div>
-          <p className="mt-4 text-sm text-muted-foreground">
-            Prefer to talk? Call us:{" "}
-            <a href="tel:+254700000000" className="text-primary font-medium">
-              +254 700 000 000
-            </a>
-          </p>
         </div>
       </section>
 
-      {/* Services Grid */}
-      <section className="py-12 md:py-20">
+      {/* Services Section */}
+      <section className="py-16 sm:py-24">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl font-bold text-center">Our Services</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-8">
+          <div className="text-center">
+            <h2 className="text-3xl font-extrabold tracking-tight sm:text-4xl">
+              Our Comprehensive Services
+            </h2>
+            <p className="mt-4 text-lg text-muted-foreground">
+              We offer a wide range of services to meet your HR needs.
+            </p>
+          </div>
+          <div className="mt-12 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
             {services.map((service) => (
-              <Card
-                key={service.title}
-                className="hover:shadow-lg transition-shadow duration-300"
-              >
-                <CardHeader className="flex flex-row items-center gap-4">
-                  {service.icon}
-                  <CardTitle>{service.title}</CardTitle>
+              <Card key={service.title} className="text-center">
+                <CardHeader>
+                  <div className="flex justify-center items-center h-16 w-16 mx-auto bg-primary/10 rounded-full">
+                    {service.icon}
+                  </div>
                 </CardHeader>
                 <CardContent>
-                  <p className="text-muted-foreground">{service.description}</p>
+                  <CardTitle className="text-xl font-semibold">
+                    {service.title}
+                  </CardTitle>
+                  <p className="mt-2 text-muted-foreground">
+                    {service.description}
+                  </p>
                 </CardContent>
               </Card>
             ))}
@@ -156,41 +168,50 @@ export function HomePage() {
       </section>
 
       {/* Featured Training Section */}
-      <section className="bg-muted">
-        <div className="container mx-auto py-12 md:py-20 px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-            <div className="order-2 md:order-1">
+      <section className="bg-muted py-16 sm:py-24">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid md:grid-cols-2 gap-12 items-center">
+            <div>
               <img
-                src="https://picsum.photos/seed/galaxy/800/600"
-                alt="Facilitator"
-                className="rounded-2xl shadow-2xl"
+                src="https://picsum.photos/seed/training/800/600"
+                alt="Featured Training"
+                className="rounded-lg shadow-lg"
               />
             </div>
-            <div className="order-1 md:order-2">
-              <h2 className="text-3xl font-bold">Featured Training</h2>
-              <p className="mt-4 text-muted-foreground">
+            <div>
+              <h2 className="text-3xl font-extrabold tracking-tight sm:text-4xl">
+                Featured Training: Personal Mastery
+              </h2>
+              <p className="mt-4 text-lg text-muted-foreground">
                 Join our featured facilitator in a transformative learning
-                experience. This session on Personal Mastery for young
-                professionals and managers will equip you with the skills for
-                the modern workplace.
+                experience. This session for young professionals and managers
+                will equip you with the skills for the modern workplace.
               </p>
-              <Button asChild size="lg" className="mt-6">
-                <Link to="/e-learning">Learn More</Link>
-              </Button>
+              <div className="mt-6">
+                <Button asChild size="lg">
+                  <Link to="/e-learning">Learn More & Register</Link>
+                </Button>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
       <TrustLogos />
-      {/* Testimonials Preview */}
-      <section id="testimonials" className="py-12 md:py-20">
+
+      {/* Testimonials Section */}
+      <section className="py-16 sm:py-24">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl font-bold text-center">
-            What Our Clients Say
-          </h2>
+          <div className="text-center">
+            <h2 className="text-3xl font-extrabold tracking-tight sm:text-4xl">
+              What Our Clients Say
+            </h2>
+            <p className="mt-4 text-lg text-muted-foreground">
+              We are proud to have earned the trust of our clients.
+            </p>
+          </div>
           <Carousel
-            className="mt-8 w-full max-w-xs sm:max-w-xl md:max-w-2xl lg:max-w-4xl mx-auto"
+            className="mt-12 w-full max-w-xs sm:max-w-xl md:max-w-2xl lg:max-w-4xl mx-auto"
             plugins={[plugin.current]}
             onMouseEnter={plugin.current.stop}
             onMouseLeave={plugin.current.reset}
@@ -221,6 +242,6 @@ export function HomePage() {
           </Carousel>
         </div>
       </section>
-    </div>
+    </>
   );
 }
