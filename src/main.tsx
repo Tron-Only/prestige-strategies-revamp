@@ -13,6 +13,7 @@ import { ElearningPage } from "./pages/Elearning.tsx";
 import { UploadCvPage } from "./pages/UploadCv.tsx";
 import { TestimonialsPage } from "./pages/Testimonials.tsx";
 import { ContactPage } from "./pages/Contact.tsx";
+import Jobs from "./pages/Jobs.tsx";
 
 const router = createBrowserRouter([
   {
@@ -34,6 +35,10 @@ const router = createBrowserRouter([
       {
         path: "resources",
         element: <ResourcesPage />,
+      },
+      {
+        path: "jobs",
+        element: <Jobs />,
       },
       {
         path: "events",

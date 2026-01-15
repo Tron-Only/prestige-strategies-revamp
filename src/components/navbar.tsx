@@ -16,6 +16,7 @@ const navLinks = [
   { to: "/resources", label: "Resources" },
   { to: "/events", label: "Events" },
   { to: "/e-learning", label: "E-learning" },
+  { to: "/jobs", label: "Jobs" },
 ];
 
 export function Navbar() {
@@ -53,6 +54,11 @@ export function Navbar() {
             <NavigationMenuItem>
               <Button asChild variant="ghost" className="text-sm font-medium">
                 <Link to="/e-learning">E-learning</Link>
+              </Button>
+            </NavigationMenuItem>
+            <NavigationMenuItem>
+              <Button asChild variant="ghost" className="text-sm font-medium">
+                <Link to="/jobs">Jobs</Link>
               </Button>
             </NavigationMenuItem>
           </NavigationMenuList>
