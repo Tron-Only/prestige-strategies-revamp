@@ -146,42 +146,50 @@ const ENGAGEMENTS = [
 
 const FAQS = [
   {
-    question: "How long does a typical engagement take?",
+    question: "Will AI replace HR jobs in 2026?",
     answer: (
       <>
-        Timelines vary by service. A focused audit is typically 2–4 weeks;
-        payroll onboarding is 4–8 weeks depending on data complexity. We provide
-        a clear project plan before work begins.
+        No, not the strategic ones. It’ll annihilate routine tasks freeing a
+        person form high-touch stuff like culture-building.
       </>
     ),
   },
   {
-    question: "Do you provide local Kenyan compliance advice?",
+    question:
+      "How do I start with skills-based hiring without overhauling everything?",
     answer: (
       <>
-        Yes — our team is experienced with Kenyan labour law, statutory filings
-        and common employer obligations. We combine local know-how with
-        international best practice.
+        Start slowly, rewrite 2-3 job postings to emphasize skills, use free AI
+        tools for assessments, and pilot with one team.
       </>
     ),
   },
   {
-    question: "Can you work with our existing HR systems?",
+    question: "What's the ROI on mental health initiatives?",
     answer: (
       <>
-        Absolutely. We prioritise integrations and data safety. If your system
-        offers APIs we will integrate or create a secure file exchange as
-        required.
+        Massive, up to four times returns via lower absenteeism and higher
+        output. Start with surveys to pinpoint needs, then layer in apps or
+        workshops.
       </>
     ),
   },
   {
-    question: "What are your pricing models?",
+    question: "Is pay transparency a must?",
     answer: (
       <>
-        We offer retainer, project-based, per-hire and managed services. After a
-        short discovery call we will propose a transparent fee structure and
-        value-based outcome metrics.
+        Increasingly, yes, at it builds equity. Roll out bands via town halls;
+        it cuts negotiation drama and boosts trust.
+      </>
+    ),
+  },
+  {
+    question: "How do I measure success for these trends?",
+    answer: (
+      <>
+        KPIs like eNPS for experience, turnover rates for well-being, and AI ROI
+        via productivity metrics. Tools like predictive analytics will make
+        tracking a breeze.
       </>
     ),
   },
