@@ -34,7 +34,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         // Email configuration
         $to = $companyEmail;
-        $from = "noreply@yourdomain.com"; // Replace with a valid email address from your domain
+        $from = "vivianperose@prestigestrategies.co.ke"; // Replace with a valid email address from your domain
         $subject = "New CV Submission for " . $jobTitle;
 
         // Email message
