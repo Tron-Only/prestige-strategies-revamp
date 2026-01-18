@@ -3,12 +3,16 @@
     "id": 1,
     "title": "Senior React Developer",
     "description": "We are looking for an experienced React developer to join our team. The ideal candidate will have a strong understanding of React, TypeScript, and modern frontend development practices.",
+    "location": "New York, NY",
+    "type": "Full-time",
     "companyemail": "hr@example.com"
   },
   {
     "id": 2,
     "title": "UI/UX Designer",
-    "description": "We are seeking a talented UI/UX designer to create amazing user experiences. The ideal candidate will have a passion for design and a strong portfolio of previous work.",
+    "description": "We are seeking a talented UI/UX Designer to craft compelling, user-centered digital experiences.\n\nIn this role you will partner closely with product managers, engineers, and researchers to translate business and user needs into wireframes, prototypes, and polished visual designs.\nYou will run user research and usability testing, iterate on solutions based on feedback and data, and help define design systems and best practices.\nThe ideal candidate has a strong portfolio that demonstrates problem-solving, interaction design, and visual craft, excellent communication skills, and a passion for creating products that delight users.\nIf you’re excited to make a measurable impact and grow within a collaborative team, we would love to hear from you.",
+    "location": "San Francisco, CA",
+    "type": "Full-time",
     "companyemail": "design.hr@example.com"
   }
 ]

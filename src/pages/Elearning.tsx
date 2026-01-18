@@ -36,16 +36,8 @@ const courses = [
 export function ElearningPage() {
   return (
     <>
-      <section className="relative h-[400px] flex items-center justify-center text-center text-white">
-        <div
-          className="absolute inset-0 bg-cover bg-center"
-          style={{
-            backgroundImage:
-              "url(https://picsum.photos/seed/elearning/1600/900)",
-            filter: "brightness(0.4)",
-          }}
-        />
-        <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="bg-gradient-to-r from-primary to-secondary text-white">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-24 text-center">
           <h1 className="text-4xl md:text-6xl font-extrabold tracking-tight">
             E-Learning
           </h1>
@@ -68,7 +60,10 @@ export function ElearningPage() {
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {courses.map((course, index) => (
-            <Card key={index} className="flex flex-col">
+            <Card
+              key={index}
+              className="flex flex-col transform hover:scale-105 transition-transform duration-300"
+            >
               <CardHeader className="p-0">
                 <img
                   src={course.image}
@@ -76,7 +71,7 @@ export function ElearningPage() {
                   className="rounded-t-lg h-48 w-full object-cover"
                 />
               </CardHeader>
-              <CardContent className="flex-grow p-6">
+              <CardContent className="grow p-6">
                 <CardTitle className="mb-2">{course.title}</CardTitle>
                 <p className="text-muted-foreground text-sm mb-4">
                   {course.description}
@@ -101,7 +96,7 @@ export function ElearningPage() {
           ))}
         </div>
 
-        <div className="text-center mt-16">
+        <div className="text-center mt-16 bg-secondary p-8 rounded-lg">
           <h2 className="text-3xl font-extrabold tracking-tight sm:text-4xl">
             Custom Training Solutions
           </h2>

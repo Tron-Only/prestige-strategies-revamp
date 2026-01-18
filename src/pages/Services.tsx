@@ -8,7 +8,7 @@ import {
   Users,
   Building,
   Briefcase,
- } from "lucide-react";
+} from "lucide-react";
 import {
   Accordion,
   AccordionItem,
@@ -88,16 +88,8 @@ export function ServicesPage() {
   return (
     <>
       {/* Hero Section */}
-      <section className="relative h-[500px] flex items-center justify-center text-center text-white">
-        <div
-          className="absolute inset-0 bg-cover bg-center"
-          style={{
-            backgroundImage:
-              "url(https://picsum.photos/seed/services/1600/900)",
-            filter: "brightness(0.4)",
-          }}
-        />
-        <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="bg-gradient-to-r from-primary to-secondary text-white">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-24 text-center">
           <h1 className="text-4xl md:text-6xl font-extrabold tracking-tight">
             Our Services
           </h1>
@@ -143,7 +135,7 @@ export function ServicesPage() {
       </section>
 
       {/* FAQ Section */}
-      <section className="bg-muted py-16 sm:py-24">
+      <section className="bg-secondary py-16 sm:py-24">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
             <h2 className="text-3xl font-extrabold tracking-tight sm:text-4xl">

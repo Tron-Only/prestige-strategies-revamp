@@ -57,15 +57,8 @@ export function UploadCvPage() {
 
   return (
     <>
-      <section className="relative h-[400px] flex items-center justify-center text-center text-white">
-        <div
-          className="absolute inset-0 bg-cover bg-center"
-          style={{
-            backgroundImage: "url(https://picsum.photos/seed/cv/1600/900)",
-            filter: "brightness(0.4)",
-          }}
-        />
-        <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="bg-gradient-to-r from-primary to-secondary text-white">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-24 text-center">
           <h1 className="text-4xl md:text-6xl font-extrabold tracking-tight">
             Submit Your CV
           </h1>

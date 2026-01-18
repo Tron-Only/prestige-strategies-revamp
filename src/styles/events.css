@@ -12,18 +12,25 @@
 
 .rbc-toolbar .rbc-btn-group button,
 .rbc-toolbar .rbc-btn-group .rbc-active {
-  background: transparent;
-  color: var(--foreground);
-  border: 1px solid transparent;
-  padding: 0.35rem 0.5rem;
-  border-radius: calc(var(--radius) - 2px);
+  background: var(--secondary);
+  color: var(--secondary-foreground);
+  border: 1px solid var(--border);
+  padding: 0.35rem 0.75rem;
+  border-radius: var(--radius);
   cursor: pointer;
   font-weight: 500;
+  transition: all 0.2s ease-in-out;
 }
 
 .rbc-toolbar .rbc-btn-group button:hover {
-  /* Use a subtle tint of the primary theme color instead of gray on hover */
-  background: rgba(0, 102, 214, 0.06);
+  background: var(--primary);
+  color: var(--primary-foreground);
+}
+
+.rbc-toolbar .rbc-btn-group .rbc-active {
+  background: var(--primary);
+  color: var(--primary-foreground);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .rbc-toolbar .rbc-toolbar-label {
@@ -35,16 +42,18 @@
 .rbc-btn {
   background: var(--primary);
   color: var(--primary-foreground);
-  border-radius: calc(var(--radius) - 2px);
-  padding: 0.4rem 0.6rem;
+  border-radius: var(--radius);
+  padding: 0.4rem 0.8rem;
   border: none;
   cursor: pointer;
   box-shadow: none;
   font-weight: 600;
+  transition: all 0.2s ease-in-out;
 }
 
 .rbc-btn:hover:not(:disabled) {
-  filter: brightness(0.95);
+  background: var(--primary);
+  filter: brightness(0.9);
 }
 
 /* Calendar grid and cells */

@@ -52,6 +52,10 @@ export function EventsPage(): React.ReactElement {
   const [events, setEvents] = useState<CalendarEvent[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
+  const [view, setView] = useState<(typeof Views)[keyof typeof Views]>(
+    Views.MONTH,
+  );
+  const [date, setDate] = useState(new Date());
 
   useEffect(() => {
     let cancelled = false;
@@ -87,15 +91,8 @@ export function EventsPage(): React.ReactElement {
 
   return (
     <>
-      <section className="relative h-[400px] flex items-center justify-center text-center text-white">
-        <div
-          className="absolute inset-0 bg-cover bg-center"
-          style={{
-            backgroundImage: "url(https://picsum.photos/seed/events/1600/900)",
-            filter: "brightness(0.4)",
-          }}
-        />
-        <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="bg-gradient-to-r from-primary to-secondary text-white">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-24 text-center">
           <h1 className="text-4xl md:text-6xl font-extrabold tracking-tight">
             Events
           </h1>
@@ -166,10 +163,18 @@ export function EventsPage(): React.ReactElement {
                 <Calendar
                   localizer={localizer}
                   events={events}
+                  selectable={true}
+                  onSelectEvent={(event) => {
+                    console.log("Selected event:", event);
+                  }}
                   startAccessor="start"
                   endAccessor="end"
                   style={{ height: "100%" }}
                   views={[Views.MONTH, Views.WEEK, Views.DAY, Views.AGENDA]}
+                  view={view}
+                  onView={(view) => setView(view)}
+                  date={date}
+                  onNavigate={(newDate) => setDate(newDate)}
                   popup
                   showMultiDayTimes
                 />

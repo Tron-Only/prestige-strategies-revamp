@@ -17,50 +17,50 @@
 */
 :root {
   /* Foundation */
-  --background: #f0f8ff;
-  --foreground: #0d1b2a;
+  --background: #ffffff;
+  --foreground: #020817;
   --card: #ffffff;
-  --card-foreground: #0d1b2a;
+  --card-foreground: #020817;
 
   /* Surfaces / overlays */
   --popover: #ffffff;
-  --popover-foreground: #0d1b2a;
+  --popover-foreground: #020817;
 
   /* Primary (buttons, links) */
-  --primary: #007bff;
+  --primary: #2563eb;
   --primary-foreground: #ffffff;
 
   /* Secondary / accents */
-  --secondary: #6c757d;
-  --secondary-foreground: #ffffff;
+  --secondary: #f1f5f9;
+  --secondary-foreground: #020817;
 
   /* Muted / subdued text */
-  --muted: #f3f6f9;
-  --muted-foreground: #4b5563;
+  --muted: #f1f5f9;
+  --muted-foreground: #64748b;
 
   /* Accent and others */
-  --accent: #00a6a6;
-  --accent-foreground: #ffffff;
+  --accent: #f1f5f9;
+  --accent-foreground: #020817;
 
   /* Destructive (danger) */
-  --destructive: #e03131;
+  --destructive: #ef4444;
 
   /* UI borders and inputs */
-  --border: rgba(8, 23, 42, 0.06);
-  --input: rgba(8, 23, 42, 0.06);
-  --ring: rgba(0, 123, 255, 0.18);
+  --border: #e2e8f0;
+  --input: #e2e8f0;
+  --ring: #2563eb;
 
   /* Chart palette */
-  --chart-1: #68a5ff;
-  --chart-2: #5bc1d7;
-  --chart-3: #6b3dff;
-  --chart-4: #00a6a6;
-  --chart-5: #ffc857;
+  --chart-1: #3b82f6;
+  --chart-2: #60a5fa;
+  --chart-3: #93c5fd;
+  --chart-4: #bfdbfe;
+  --chart-5: #dbeafe;
 
   /* Radii and sidebar */
-  --radius: 0.25rem;
+  --radius: 0.5rem;
   --sidebar: #ffffff;
-  --sidebar-foreground: #0d1b2a;
+  --sidebar-foreground: #020817;
 
   /* Misc */
   --sidebar-primary: var(--primary);
@@ -73,39 +73,40 @@
 
 /* Dark mode overrides */
 .dark {
-  --background: #081827; /* deep navy for dark background */
-  --foreground: #e6f3ff; /* pale blue/white text */
-  --card: #0f2130;
-  --card-foreground: #e6f3ff;
-  --popover: #0f2130;
-  --popover-foreground: #e6f3ff;
+  --background: #020817;
+  --foreground: #f8fafc;
+  --card: #020817;
+  --card-foreground: #f8fafc;
 
-  --primary: #1885ff; /* slightly lighter blue for dark mode */
-  --primary-foreground: #ffffff;
+  --popover: #020817;
+  --popover-foreground: #f8fafc;
 
-  --secondary: #8a6bff;
-  --secondary-foreground: #ffffff;
+  --primary: #3b82f6;
+  --primary-foreground: #f8fafc;
 
-  --muted: #0b2330;
-  --muted-foreground: #96a6b2;
+  --secondary: #1e293b;
+  --secondary-foreground: #f8fafc;
 
-  --accent: #00d4c0;
-  --accent-foreground: #05233a;
+  --muted: #1e293b;
+  --muted-foreground: #94a3b8;
 
-  --destructive: #ff6b6b;
+  --accent: #1e293b;
+  --accent-foreground: #f8fafc;
 
-  --border: rgba(255, 255, 255, 0.06);
-  --input: rgba(255, 255, 255, 0.04);
-  --ring: rgba(24, 133, 255, 0.2);
+  --destructive: #7f1d1d;
 
-  --chart-1: #4ea0ff;
-  --chart-2: #4dd0c0;
-  --chart-3: #a58bff;
-  --chart-4: #00d4c0;
-  --chart-5: #ffd27a;
+  --border: #1e293b;
+  --input: #1e293b;
+  --ring: #3b82f6;
 
-  --sidebar: #0f2130;
-  --sidebar-foreground: var(--card-foreground);
+  --chart-1: #2563eb;
+  --chart-2: #3b82f6;
+  --chart-3: #60a5fa;
+  --chart-4: #93c5fd;
+  --chart-5: #bfdbfe;
+
+  --sidebar: #020817;
+  --sidebar-foreground: #f8fafc;
 }
 
 /* Theme mapping used by tailwind/shadcn components */
