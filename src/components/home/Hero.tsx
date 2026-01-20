@@ -3,35 +3,29 @@ import { Button } from "@/components/ui/button";
 
 export function Hero() {
   return (
-    <section className="bg-linear-to-r from-primary to-secondary text-white">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-24">
-        <div className="grid md:grid-cols-2 gap-12 items-center">
-          <div className="text-center md:text-left animate-fade-in-up">
-            <h1 className="text-4xl md:text-6xl font-extrabold tracking-tight">
-              Empowering Your Business with Strategic HR Solutions
-            </h1>
-            <p className="mt-4 text-lg md:text-xl max-w-3xl">
-              Trusted HR, payroll, and talent solutions that help Kenyan
-              organisations scale with confidence.
-            </p>
-            <div className="mt-8 flex flex-col sm:flex-row justify-center md:justify-start gap-4">
-              <Button asChild size="lg">
-                <Link to="/services">Explore Services</Link>
-              </Button>
-              <Button asChild size="lg" variant="outline">
-                <Link to="/contact">Book a Consultation</Link>
-              </Button>
-            </div>
-          </div>
-          <div className="hidden md:block">
-            <img
-              src="https://picsum.photos/seed/business-modern/800/600"
-              alt="Modern Business"
-              className="rounded-lg shadow-lg"
-            />
+    <section className="bg-background text-foreground">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-28">
+        <div className="max-w-3xl mx-auto text-center">
+          <h1 className="text-5xl md:text-7xl font-extrabold leading-tight">
+            Welcome to Prestige Strategies
+          </h1>
+          <p className="mt-6 text-lg md:text-2xl max-w-2xl mx-auto text-muted-foreground">
+            Trusted HR, payroll, and talent solutions that help Kenyan
+            organisations scale with confidence.
+          </p>
+
+          <div className="mt-8 flex items-center justify-center gap-4">
+            <Button asChild size="lg">
+              <Link to="/services">Explore Services</Link>
+            </Button>
+            <Button asChild size="lg" variant="outline">
+              <Link to="/contact">Book a Consultation</Link>
+            </Button>
           </div>
         </div>
       </div>
     </section>
   );
 }
+
+export default Hero;

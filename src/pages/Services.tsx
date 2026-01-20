@@ -88,12 +88,12 @@ export function ServicesPage() {
   return (
     <>
       {/* Hero Section */}
-      <section className="bg-gradient-to-r from-primary to-secondary text-white">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-24 text-center">
-          <h1 className="text-4xl md:text-6xl font-extrabold tracking-tight">
+      <section className="bg-background text-foreground">
+        <div className="container mx-auto max-w-3xl px-4 sm:px-6 lg:px-8 py-20 md:py-28 text-center">
+          <h1 className="text-5xl md:text-7xl font-extrabold leading-tight">
             Our Services
           </h1>
-          <p className="mt-4 text-lg md:text-xl max-w-3xl mx-auto">
+          <p className="mt-6 text-lg md:text-2xl text-muted-foreground max-w-2xl mx-auto">
             We provide a comprehensive range of HR services to help you achieve
             your business goals.
           </p>

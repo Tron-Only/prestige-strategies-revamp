@@ -1,62 +1,93 @@
 [
   {
     "id": "1",
-    "title": "Business Strategy Guide",
-    "description": "A comprehensive guide to developing effective business strategies for long-term success.",
-    "fileName": "business-strategy-guide.pdf",
-    "category": "Guides",
-    "tags": ["strategy", "business", "planning"],
-    "date": "2023-11-15",
-    "size": "1.5MB"
+    "title": "HR trends shaping the workplace.docx",
+    "description": "",
+    "fileName": "HR trends shaping the workplace.docx",
+    "category": "Documents",
+    "tags": [
+      "hr",
+      "workplace",
+      "trends",
+      "talent",
+      "employee-engagement",
+      "remote-work"
+    ],
+    "size": "18.72 KB"
   },
   {
     "id": "2",
-    "title": "Financial Modeling Template",
-    "description": "Excel template for building financial models to forecast revenue and expenses.",
-    "fileName": "financial-model-template.xlsx",
-    "category": "Templates",
-    "tags": ["finance", "modeling", "excel"],
-    "date": "2023-10-20",
-    "size": "500KB"
+    "title": "Mediation Bill_2020.pdf",
+    "description": "",
+    "fileName": "Mediation Bill_2020.pdf",
+    "category": "Legal",
+    "tags": [
+      "mediation",
+      "legislation",
+      "dispute-resolution",
+      "policy",
+      "2020"
+    ],
+    "size": "523.26 KB"
   },
   {
     "id": "3",
-    "title": "Market Research Report",
-    "description": "In-depth report on current market trends and consumer behavior analysis.",
-    "url": "https://example.com/market-research-report.pdf",
-    "category": "Reports",
-    "tags": ["market", "research", "trends"],
-    "date": "2023-09-05",
-    "size": "3MB"
+    "title": "Employment Act_2007.pdf",
+    "description": "",
+    "fileName": "Employment Act_2007.pdf",
+    "category": "Legal",
+    "tags": [
+      "employment-law",
+      "labor",
+      "compliance",
+      "workplace-rights",
+      "2007"
+    ],
+    "size": "1.91 MB"
   },
   {
     "id": "4",
-    "title": "Leadership Development Workshop",
-    "description": "Materials from our leadership workshop including slides and exercises.",
-    "fileName": "leadership-workshop.zip",
-    "category": "Workshops",
-    "tags": ["leadership", "development", "training"],
-    "date": "2023-08-12",
-    "size": "10MB"
+    "title": "Court Annexed Mediation Rules 2022.pdf",
+    "description": "",
+    "fileName": "Court Annexed Mediation Rules 2022.pdf",
+    "category": "Legal",
+    "tags": [
+      "mediation",
+      "court-rules",
+      "alternative-dispute-resolution",
+      "procedure",
+      "2022"
+    ],
+    "size": "333.92 KB"
   },
   {
     "id": "5",
-    "title": "Startup Pitch Deck Template",
-    "description": "Professional template for creating compelling pitch decks to attract investors.",
-    "fileName": "pitch-deck-template.pptx",
-    "category": "Templates",
-    "tags": ["startup", "pitch", "investors"],
-    "date": "2023-07-30",
-    "size": "2MB"
+    "title": "How Workplaces will Transform.docx",
+    "description": "",
+    "fileName": "How Workplaces will Transform.docx",
+    "category": "Documents",
+    "tags": [
+      "future-of-work",
+      "transformation",
+      "technology",
+      "remote-work",
+      "workplace-design"
+    ],
+    "size": "18.18 KB"
   },
   {
     "id": "6",
-    "title": "Industry Benchmarking Study",
-    "description": "Comparative analysis of industry benchmarks and best practices.",
-    "fileName": "industry-benchmarking.pdf",
+    "title": "IHRM.pdf",
+    "description": "",
+    "fileName": "IHRM.pdf",
     "category": "Reports",
-    "tags": ["benchmarking", "industry", "analysis"],
-    "date": "2023-06-18",
-    "size": "4MB"
+    "tags": [
+      "ihrm",
+      "human-resources",
+      "international",
+      "talent-management",
+      "training"
+    ],
+    "size": "9.85 MB"
   }
 ]

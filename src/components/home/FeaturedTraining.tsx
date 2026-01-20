@@ -1,19 +1,32 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
+import { motion } from "framer-motion";
 
 export function FeaturedTraining() {
   return (
     <section className="py-16 sm:py-24">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid md:grid-cols-2 gap-12 items-center">
-          <div className="animate-slide-in-left">
+          <motion.div
+            className="rounded border bg-card p-2 shadow-sm"
+            initial={{ opacity: 0, x: -12 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, amount: 0.4 }}
+            transition={{ duration: 0.45 }}
+          >
             <img
               src="https://picsum.photos/seed/training-modern/800/600"
               alt="Featured Training"
-              className="rounded-lg shadow-lg"
+              className="rounded shadow-md"
             />
-          </div>
-          <div className="bg-secondary p-8 rounded-lg animate-slide-in-right">
+          </motion.div>
+          <motion.div
+            className="bg-card p-8 rounded border shadow-sm"
+            initial={{ opacity: 0, x: 12 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, amount: 0.4 }}
+            transition={{ duration: 0.45 }}
+          >
             <h2 className="text-3xl font-extrabold tracking-tight sm:text-4xl">
               Featured Training: Personal Mastery
             </h2>
@@ -27,7 +40,7 @@ export function FeaturedTraining() {
                 <Link to="/e-learning">Learn More & Register</Link>
               </Button>
             </div>
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>

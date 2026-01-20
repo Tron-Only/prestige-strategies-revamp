@@ -173,7 +173,7 @@ export function TrustLogos({
         <div
           className="relative w-full overflow-hidden"
           style={{
-            height: "96px",
+            height: "88px",
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
@@ -205,12 +205,12 @@ export function TrustLogos({
                 <figure
                   key={`${logo.name}-${idx}`}
                   className={`flex items-center justify-center p-3 rounded-md bg-card transition-all duration-300
-                    ${isHovered ? "scale-110 shadow-lg z-10" : "scale-100"}
+                    ${isHovered ? "scale-105 shadow-md z-10" : "scale-100"}
                   `}
                   style={{
                     minWidth: "180px",
                     maxWidth: "220px",
-                    height: "72px",
+                    height: "64px",
                     cursor: "pointer",
                     transition:
                       "transform 0.25s cubic-bezier(.4,1.2,.6,1), box-shadow 0.25s",
@@ -241,9 +241,9 @@ export function TrustLogos({
                         className={`max-h-12 opacity-90 transition-all duration-300 transform
                           ${
                             isHovered
-                              ? "grayscale-0 opacity-100 -translate-y-2"
+                              ? "grayscale-0 opacity-100 -translate-y-1"
                               : isActive
-                                ? "grayscale-0 opacity-100 -translate-y-1"
+                                ? "grayscale-0 opacity-100 translate-y-0"
                                 : "grayscale opacity-90"
                           }
                         `}
@@ -265,9 +265,9 @@ export function TrustLogos({
                       className={`max-h-12 opacity-90 transition-all duration-300 transform
                         ${
                           isHovered
-                            ? "grayscale-0 opacity-100 -translate-y-2"
+                            ? "grayscale-0 opacity-100 -translate-y-1"
                             : isActive
-                              ? "grayscale-0 opacity-100 -translate-y-1"
+                              ? "grayscale-0 opacity-100 translate-y-0"
                               : "grayscale opacity-90"
                         }
                       `}

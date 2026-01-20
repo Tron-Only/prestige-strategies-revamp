@@ -1,4 +1,5 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { motion } from "framer-motion";
 import {
   AreaChart,
   Briefcase,
@@ -53,33 +54,38 @@ export function Services() {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center">
           <h2 className="text-3xl font-extrabold tracking-tight sm:text-4xl">
-            Our Comprehensive Services
+            What We Offer
           </h2>
           <p className="mt-4 text-lg text-muted-foreground">
-            We offer a wide range of services to meet your HR needs.
+            Discover the services we provide to help your organisation thrive.
           </p>
         </div>
         <div className="mt-12 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
           {services.map((service, index) => (
-            <Card
+            <motion.div
               key={service.title}
-              className="text-center transform hover:scale-105 transition-transform duration-300 animate-fade-in"
-              style={{ animationDelay: `${index * 100}ms` }}
+              initial={{ opacity: 0, y: 8 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.3 }}
+              transition={{ delay: index * 0.08, duration: 0.38 }}
+              className="transform hover:scale-105 transition-transform duration-300"
             >
-              <CardHeader>
-                <div className="flex justify-center items-center h-16 w-16 mx-auto bg-primary/10 rounded-full">
-                  {service.icon}
-                </div>
-              </CardHeader>
-              <CardContent>
-                <CardTitle className="text-xl font-semibold">
-                  {service.title}
-                </CardTitle>
-                <p className="mt-2 text-muted-foreground">
-                  {service.description}
-                </p>
-              </CardContent>
-            </Card>
+              <Card className="text-center">
+                <CardHeader>
+                  <div className="flex justify-center items-center h-16 w-16 mx-auto bg-primary/10 rounded-full">
+                    {service.icon}
+                  </div>
+                </CardHeader>
+                <CardContent>
+                  <CardTitle className="text-xl font-semibold">
+                    {service.title}
+                  </CardTitle>
+                  <p className="mt-2 text-muted-foreground">
+                    {service.description}
+                  </p>
+                </CardContent>
+              </Card>
+            </motion.div>
           ))}
         </div>
       </div>

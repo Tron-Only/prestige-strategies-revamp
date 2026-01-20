@@ -2,194 +2,194 @@
 
 /* Toolbar */
 .rbc-toolbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 0.75rem;
-  color: var(--foreground);
-  gap: 0.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.75rem;
+    color: var(--foreground);
+    gap: 0.5rem;
 }
 
 .rbc-toolbar .rbc-btn-group button,
 .rbc-toolbar .rbc-btn-group .rbc-active {
-  background: var(--secondary);
-  color: var(--secondary-foreground);
-  border: 1px solid var(--border);
-  padding: 0.35rem 0.75rem;
-  border-radius: var(--radius);
-  cursor: pointer;
-  font-weight: 500;
-  transition: all 0.2s ease-in-out;
+    background: var(--secondary);
+    color: var(--secondary-foreground);
+    border: 1px solid var(--border);
+    padding: 0.35rem 0.75rem;
+    border-radius: var(--radius);
+    cursor: pointer;
+    font-weight: 500;
+    transition: all 0.2s ease-in-out;
 }
 
 .rbc-toolbar .rbc-btn-group button:hover {
-  background: var(--primary);
-  color: var(--primary-foreground);
+    background: var(--primary);
+    color: var(--primary-foreground);
 }
 
 .rbc-toolbar .rbc-btn-group .rbc-active {
-  background: var(--primary);
-  color: var(--primary-foreground);
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    background: var(--primary);
+    color: var(--primary-foreground);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .rbc-toolbar .rbc-toolbar-label {
-  font-weight: 600;
-  color: var(--foreground);
+    font-weight: 600;
+    color: var(--foreground);
 }
 
 /* Primary toolbar buttons (Today / Back / Next) adapted to theme */
 .rbc-btn {
-  background: var(--primary);
-  color: var(--primary-foreground);
-  border-radius: var(--radius);
-  padding: 0.4rem 0.8rem;
-  border: none;
-  cursor: pointer;
-  box-shadow: none;
-  font-weight: 600;
-  transition: all 0.2s ease-in-out;
+    background: var(--primary);
+    color: var(--primary-foreground);
+    border-radius: var(--radius);
+    padding: 0.4rem 0.8rem;
+    border: none;
+    cursor: pointer;
+    box-shadow: none;
+    font-weight: 600;
+    transition: all 0.2s ease-in-out;
 }
 
 .rbc-btn:hover:not(:disabled) {
-  background: var(--primary);
-  filter: brightness(0.9);
+    background: var(--primary);
+    filter: brightness(0.9);
 }
 
 /* Calendar grid and cells */
 .rbc-month-view,
 .rbc-time-view,
 .rbc-agenda-view {
-  color: var(--foreground);
-  background-color: transparent;
+    color: var(--foreground);
+    background-color: transparent;
 }
 
 /* Event bubbles */
 .rbc-event,
 .rbc-event a {
-  background-color: var(--primary);
-  color: var(--primary-foreground);
-  border: none;
-  padding: 2px 6px;
-  border-radius: 6px;
-  box-shadow: none;
-  font-size: 0.9rem;
-  text-decoration: none;
-  display: inline-block;
+    background-color: var(--primary);
+    color: var(--primary-foreground);
+    border: none;
+    padding: 2px 6px;
+    border-radius: 6px;
+    box-shadow: none;
+    font-size: 0.9rem;
+    text-decoration: none;
+    display: inline-block;
 }
 
 /* Selected / focus outlines */
 .rbc-event.rbc-selected,
 .rbc-event:focus {
-  /* Use the site primary color for outlines so focus/active states match the theme */
-  outline: 2px solid var(--primary);
-  outline-offset: 2px;
-  /* Light glow to make focus accessible but pleasant */
-  box-shadow: 0 0 0 4px rgba(0, 102, 214, 0.08);
+    /* Use the site primary color for outlines so focus/active states match the theme */
+    outline: 2px solid var(--primary);
+    outline-offset: 2px;
+    /* Light glow to make focus accessible but pleasant */
+    box-shadow: 0 0 0 4px rgba(0, 102, 214, 0.08);
 }
 
 /* Remove the fallback gray/filled look. Active/focus states are handled by the hanging accent bar above.
    Keep a subtle focus ring for keyboard users while avoiding a permanent filled look. */
 .rbc-toolbar .rbc-btn-group button:focus,
 .rbc-btn:focus {
-  outline: none;
-  box-shadow: 0 0 0 4px rgba(0, 102, 214, 0.06); /* subtle ring for accessibility */
-  background: transparent;
-  color: var(--primary-foreground);
+    outline: none;
+    box-shadow: 0 0 0 4px rgba(0, 102, 214, 0.06); /* subtle ring for accessibility */
+    background: transparent;
+    color: black;
 }
 
 /* All-day and multi-day event segments */
 .rbc-day-slot .rbc-event,
 .rbc-time-slot .rbc-event {
-  background-color: var(--primary);
-  color: var(--primary-foreground);
+    background-color: var(--primary);
+    color: var(--primary-foreground);
 }
 
 /* Agenda table styles */
 .rbc-agenda-table {
-  width: 100%;
-  border-collapse: collapse;
-  font-size: 0.95rem;
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.95rem;
 }
 
 .rbc-agenda-table th,
 .rbc-agenda-table td {
-  padding: 0.5rem 0.75rem;
-  border-bottom: 1px solid var(--border);
-  vertical-align: top;
+    padding: 0.5rem 0.75rem;
+    border-bottom: 1px solid var(--border);
+    vertical-align: top;
 }
 
 .rbc-agenda-date {
-  color: var(--muted-foreground);
-  width: 180px;
-  font-weight: 600;
+    color: var(--muted-foreground);
+    width: 180px;
+    font-weight: 600;
 }
 
 .rbc-agenda-time {
-  color: var(--foreground);
-  white-space: nowrap;
+    color: var(--foreground);
+    white-space: nowrap;
 }
 
 /* Today cell highlight (month/day grid) */
 .rbc-today {
-  background-color: rgba(0, 102, 214, 0.04);
+    background-color: rgba(0, 102, 214, 0.04);
 }
 
 /* Grid cell borders and background */
 .rbc-month-row > .rbc-row-bg,
 .rbc-time-grid .rbc-time-column,
 .rbc-month-view .rbc-row {
-  border-color: var(--border);
+    border-color: var(--border);
 }
 
 /* Event popover / tooltip (popup) */
 .rbc-overlay,
 .rbc-overlay .rbc-event {
-  background: var(--popover);
-  color: var(--popover-foreground);
-  border: 1px solid var(--border);
-  box-shadow: 0 8px 24px rgba(8, 23, 42, 0.08);
+    background: var(--popover);
+    color: var(--popover-foreground);
+    border: 1px solid var(--border);
+    box-shadow: 0 8px 24px rgba(8, 23, 42, 0.08);
 }
 
 /* Compactness on small screens */
 @media (max-width: 640px) {
-  .rbc-toolbar .rbc-btn-group button,
-  .rbc-btn {
-    padding: 0.3rem 0.4rem;
-    font-size: 0.9rem;
-  }
+    .rbc-toolbar .rbc-btn-group button,
+    .rbc-btn {
+        padding: 0.3rem 0.4rem;
+        font-size: 0.9rem;
+    }
 
-  .rbc-agenda-date {
-    width: 130px;
-    font-size: 0.9rem;
-  }
+    .rbc-agenda-date {
+        width: 130px;
+        font-size: 0.9rem;
+    }
 
-  .rbc-event,
-  .rbc-event a {
-    font-size: 0.85rem;
-    padding: 2px 4px;
-  }
+    .rbc-event,
+    .rbc-event a {
+        font-size: 0.85rem;
+        padding: 2px 4px;
+    }
 }
 
 /* Accessibility helpers */
 .rbc-event:focus {
-  outline-offset: 2px;
+    outline-offset: 2px;
 }
 
 /* Optional: subtle hover for event items */
 .rbc-event:hover {
-  filter: brightness(0.98);
+    filter: brightness(0.98);
 }
 
 /* Ensure calendar respects the page card background */
 .rbc-calendar {
-  background: transparent;
+    background: transparent;
 }
 
 /* Provide consistent spacing for toolbar label at small widths */
 .rbc-toolbar .rbc-toolbar-label {
-  min-width: 160px;
-  text-align: center;
+    min-width: 160px;
+    text-align: center;
 }
 
 /* Weekend header highlight (top header row only)
@@ -197,23 +197,23 @@
    - targets the header cells in the month header row to give them a subtle accent */
 .rbc-month-view .rbc-row:first-child .rbc-header:nth-child(1),
 .rbc-month-view .rbc-row:first-child .rbc-header:nth-child(7) {
-  background-color: rgba(107, 61, 255, 0.08); /* subtle purple accent */
-  color: var(--secondary);
-  font-weight: 700;
-  border-radius: 0.25rem;
-  padding: 0.15rem 0.35rem;
+    background-color: rgba(107, 61, 255, 0.08); /* subtle purple accent */
+    color: var(--secondary);
+    font-weight: 700;
+    border-radius: 0.25rem;
+    padding: 0.15rem 0.35rem;
 }
 
 /* Ensure the rest of the month grid body remains unchanged (we only style the header row) */
 .rbc-month-view .rbc-row .rbc-header {
-  /* keep default cell behavior for body rows */
+    /* keep default cell behavior for body rows */
 }
 
 /* Optional small-screen tweak to keep header accents readable */
 @media (max-width: 640px) {
-  .rbc-month-view .rbc-row:first-child .rbc-header:nth-child(1),
-  .rbc-month-view .rbc-row:first-child .rbc-header:nth-child(7) {
-    font-size: 0.95rem;
-    padding: 0.12rem 0.25rem;
-  }
+    .rbc-month-view .rbc-row:first-child .rbc-header:nth-child(1),
+    .rbc-month-view .rbc-row:first-child .rbc-header:nth-child(7) {
+        font-size: 0.95rem;
+        padding: 0.12rem 0.25rem;
+    }
 }

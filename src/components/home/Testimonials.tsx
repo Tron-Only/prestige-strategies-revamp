@@ -1,4 +1,5 @@
 import { Card, CardContent } from "@/components/ui/card";
+import { motion } from "framer-motion";
 
 const testimonials = [
   {
@@ -38,28 +39,35 @@ export function Testimonials() {
         </div>
         <div className="mt-12 grid gap-8 md:grid-cols-1 lg:grid-cols-3">
           {testimonials.map((testimonial, index) => (
-            <Card
+            <motion.div
               key={index}
-              className="animate-fade-in"
-              style={{ animationDelay: `${index * 100}ms` }}
+              initial={{ opacity: 0, y: 8 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.3 }}
+              transition={{ delay: index * 0.08, duration: 0.4 }}
+              className="group transition-transform duration-300 hover:-translate-y-1 hover:shadow-lg"
             >
-              <CardContent className="pt-6">
-                <p className="text-lg leading-relaxed">"{testimonial.quote}"</p>
-                <div className="mt-4 flex items-center">
-                  <img
-                    src={testimonial.image}
-                    alt={testimonial.author}
-                    className="w-12 h-12 rounded-full"
-                  />
-                  <div className="ml-4">
-                    <p className="font-semibold">{testimonial.author}</p>
-                    <p className="text-sm text-muted-foreground">
-                      {testimonial.company}
-                    </p>
+              <Card className="rounded">
+                <CardContent className="pt-6">
+                  <p className="text-lg leading-relaxed">
+                    "{testimonial.quote}"
+                  </p>
+                  <div className="mt-4 flex items-center">
+                    <img
+                      src={testimonial.image}
+                      alt={testimonial.author}
+                      className="w-12 h-12 rounded-full shadow-sm transition-transform duration-300 group-hover:scale-105"
+                    />
+                    <div className="ml-4">
+                      <p className="font-semibold">{testimonial.author}</p>
+                      <p className="text-sm text-muted-foreground">
+                        {testimonial.company}
+                      </p>
+                    </div>
                   </div>
-                </div>
-              </CardContent>
-            </Card>
+                </CardContent>
+              </Card>
+            </motion.div>
           ))}
         </div>
       </div>
