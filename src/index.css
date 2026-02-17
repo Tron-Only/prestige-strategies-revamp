@@ -1,9 +1,5 @@
 /* Reset and third-party imports */
 @import "tailwindcss";
-/* Animation utilities removed in favor of Framer Motion.
-   Replace usage of utility classes like `animate-*` with Framer Motion
-   variants in JS/TSX components (e.g. `motion.div` / `motion.section`).
-   This CSS file no longer brings in the tw-animate-css utilities. */
 @import "shadcn/tailwind.css";
 @import "@fontsource-variable/outfit";
 
@@ -12,105 +8,74 @@
 
 /*
   Global theme variables
-  - Fixed broken hex from previous file
-  - Simplified color tokens to common hex / rgba values for predictable contrast
-  - Primary theme uses a trust-oriented blue (#0066D6)
-  - Background default is a soft light-blue (#E8F6FF)
-  - A light-purple accent is provided for differentiated sections
+  - Gold and Blue color scheme
+  - Professional, no-hover design (deeper shades for active states)
+  - Primary: Deep navy blue (#0D3B66)
+  - Secondary: Medium blue (#1565C0)
+  - Accent: Gold (#D4AF37)
+  - Gold Deep: #B8960C (for active/pressed states)
+  - Gold Light: #F4E4C1 (for backgrounds)
+  - Clean white backgrounds with warm off-white secondary
 */
 :root {
     /* Foundation */
-    --background: #ffffff;
-    --foreground: #020817;
-    --card: #ffffff;
-    --card-foreground: #020817;
+    --background: #FFFFFF;
+    --foreground: #1A1A1A;
+    --card: #FFFFFF;
+    --card-foreground: #1A1A1A;
 
     /* Surfaces / overlays */
-    --popover: #ffffff;
-    --popover-foreground: #020817;
+    --popover: #FFFFFF;
+    --popover-foreground: #1A1A1A;
 
-    /* Primary (buttons, links) */
-    --primary: #2563eb;
-    --primary-foreground: #ffffff;
+    /* Primary - Deep Navy Blue */
+    --primary: #0D3B66;
+    --primary-foreground: #FFFFFF;
 
-    /* Secondary / accents */
-    --secondary: #f1f5f9;
-    --secondary-foreground: #020817;
+    /* Secondary - Medium Blue */
+    --secondary: #F8F6F0;
+    --secondary-foreground: #0D3B66;
 
     /* Muted / subdued text */
-    --muted: #f1f5f9;
-    --muted-foreground: #64748b;
+    --muted: #F8F6F0;
+    --muted-foreground: #6B7280;
 
-    /* Accent and others */
-    --accent: #f1f5f9;
-    --accent-foreground: #020817;
+    /* Accent - Gold */
+    --accent: #D4AF37;
+    --accent-foreground: #1A1A1A;
 
     /* Destructive (danger) */
-    --destructive: #ef4444;
+    --destructive: #DC2626;
 
     /* UI borders and inputs */
+    --border: #E5E5E5;
+    --input: #E5E5E5;
+    --ring: #0D3B66;
 
-    --border: #e2e8f0;
-    --input: #e2e8f0;
-    --ring: #2563eb;
+    /* Chart palette - Gold and Blue variants */
+    --chart-1: #0D3B66;
+    --chart-2: #1565C0;
+    --chart-3: #D4AF37;
+    --chart-4: #F4E4C1;
+    --chart-5: #F8F6F0;
 
-    /* Chart palette */
-    --chart-1: #3b82f6;
-    --chart-2: #60a5fa;
-    --chart-3: #93c5fd;
-    --chart-4: #bfdbfe;
-    --chart-5: #dbeafe;
-
-    /* Radii and sidebar (standardized for rounded design) */
-    --radius: 0.75rem; /* unified site radius for a softer, rounded look */
-    --sidebar: #ffffff;
-    --sidebar-foreground: #020817;
+    /* Radii and sidebar */
+    --radius: 0.5rem;
+    --sidebar: #FFFFFF;
+    --sidebar-foreground: #1A1A1A;
 
     /* Misc */
     --sidebar-primary: var(--primary);
     --sidebar-primary-foreground: var(--primary-foreground);
 
-    /* Accessibility helpers (do not change lightly) */
+    /* Accessibility helpers */
     --color-foreground: var(--foreground);
     --color-background: var(--background);
-}
 
-/* Dark mode overrides */
-.dark {
-    --background: #020817;
-    --foreground: #f8fafc;
-    --card: #020817;
-    --card-foreground: #f8fafc;
-
-    --popover: #020817;
-    --popover-foreground: #f8fafc;
-
-    --primary: #3b82f6;
-    --primary-foreground: #f8fafc;
-
-    --secondary: #1e293b;
-    --secondary-foreground: #f8fafc;
-
-    --muted: #1e293b;
-    --muted-foreground: #94a3b8;
-
-    --accent: #1e293b;
-    --accent-foreground: #f8fafc;
-
-    --destructive: #7f1d1d;
-
-    --border: #1e293b;
-    --input: #1e293b;
-    --ring: #3b82f6;
-
-    --chart-1: #2563eb;
-    --chart-2: #3b82f6;
-    --chart-3: #60a5fa;
-    --chart-4: #93c5fd;
-    --chart-5: #bfdbfe;
-
-    --sidebar: #020817;
-    --sidebar-foreground: #f8fafc;
+    /* Custom Gold variables */
+    --gold: #D4AF37;
+    --gold-deep: #B8960C;
+    --gold-light: #F4E4C1;
 }
 
 /* Theme mapping used by tailwind/shadcn components */
@@ -164,20 +129,24 @@
     --color-foreground: var(--foreground);
     --color-background: var(--background);
 
-    /* All radius tokens unified to the same site radius to ensure consistent rounded UI */
-    --radius-sm: var(--radius);
-    --radius-md: var(--radius);
-    --radius-lg: var(--radius);
-    --radius-xl: var(--radius);
-    --radius-2xl: var(--radius);
-    --radius-3xl: var(--radius);
-    --radius-4xl: var(--radius);
+    /* Radius tokens */
+    --radius-sm: 0.375rem;
+    --radius-md: 0.5rem;
+    --radius-lg: 0.75rem;
+    --radius-xl: 1rem;
+    --radius-2xl: 1.5rem;
+    --radius-3xl: 2rem;
+    --radius-4xl: 2.5rem;
+
+    /* Gold colors */
+    --color-gold: #D4AF37;
+    --color-gold-deep: #B8960C;
+    --color-gold-light: #F4E4C1;
 }
 
-/* Base styles for the app (Tailwind utility composition) */
+/* Base styles for the app */
 @layer base {
     * {
-        /* Keep borders and focus rings subtle and theme-aware */
         box-sizing: border-box;
         border-color: var(--border);
         outline-color: var(--ring);
@@ -195,9 +164,8 @@
         color: var(--foreground);
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
-        /* Slightly increased line-height and base font-size for improved readability */
-        line-height: 1.5;
-        font-size: 16.5px;
+        line-height: 1.6;
+        font-size: 16px;
     }
 
     a {
@@ -205,29 +173,54 @@
         text-decoration: none;
     }
 
-    /* Buttons and primary controls default */
+    /* Primary button - Navy Blue, no hover effects */
     .btn-primary,
-    .button-primary,
-    .btn-primary:disabled {
+    .button-primary {
         background-color: var(--primary);
         color: var(--primary-foreground);
-        border-radius: calc(var(--radius) - 2px);
-        transition:
-            filter 0.12s ease,
-            transform 0.08s ease;
-    }
-    .btn-primary:hover:not(:disabled) {
-        filter: brightness(0.95);
+        border-radius: var(--radius);
+        transition: none;
     }
 
-    /* Card defaults to provide consistent elevation */
+    /* Active/pressed state - deeper shade */
+    .btn-primary:active,
+    .button-primary:active {
+        background-color: #092d4f;
+    }
+
+    /* Secondary button */
+    .btn-secondary,
+    .button-secondary {
+        background-color: var(--secondary);
+        color: var(--secondary-foreground);
+        border-radius: var(--radius);
+        transition: none;
+    }
+
+    .btn-secondary:active,
+    .button-secondary:active {
+        background-color: #ebe8e0;
+    }
+
+    /* Gold accent button */
+    .btn-gold {
+        background-color: var(--gold);
+        color: #1A1A1A;
+        border-radius: var(--radius);
+        transition: none;
+    }
+
+    .btn-gold:active {
+        background-color: var(--gold-deep);
+    }
+
+    /* Card defaults */
     .card,
     .site-card {
         background-color: var(--card);
         color: var(--card-foreground);
         border-radius: var(--radius);
         border: 1px solid var(--border);
-        box-shadow: 0 6px 18px rgba(8, 23, 42, 0.04);
     }
 
     /* Muted text helper */
@@ -235,13 +228,26 @@
         color: var(--muted-foreground);
     }
 
-    /* Utility for accented sections (e.g. purple subsection) */
+    /* Gold text utility */
+    .text-gold {
+        color: var(--gold);
+    }
+
+    .bg-gold {
+        background-color: var(--gold);
+    }
+
+    .bg-gold-light {
+        background-color: var(--gold-light);
+    }
+
+    /* Utility for accented sections */
     .section-accent {
         background-color: var(--secondary);
         color: var(--secondary-foreground);
     }
 
-    /* Ensure images are responsive and maintain rounded style used project-wide */
+    /* Ensure images are responsive */
     img {
         max-width: 100%;
         display: block;
@@ -252,12 +258,12 @@
         outline: none;
     }
     :focus-visible {
-        outline: 3px solid var(--ring);
+        outline: 2px solid var(--ring);
         outline-offset: 2px;
     }
 }
 
-/* Small helper classes (used across components) */
+/* Small helper classes */
 .text-foreground {
     color: var(--foreground);
 }
@@ -273,7 +279,6 @@
 
 /* Responsive concern: keep a readable text baseline on narrow devices */
 @media (max-width: 640px) {
-    /* Keep a slightly larger baseline on small devices for readability */
     body {
         font-size: 16px;
     }

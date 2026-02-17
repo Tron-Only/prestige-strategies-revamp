@@ -1,5 +1,6 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { motion } from "framer-motion";
+import { Quote } from "lucide-react";
 
 const testimonials = [
   {
@@ -27,13 +28,16 @@ const testimonials = [
 
 export function Testimonials() {
   return (
-    <section className="py-16 sm:py-24 bg-secondary">
+    <section className="py-16 sm:py-24" style={{ backgroundColor: "#F8F6F0" }}>
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center">
-          <h2 className="text-3xl font-extrabold tracking-tight sm:text-4xl">
+          <h2 
+            className="text-3xl font-extrabold tracking-tight sm:text-4xl"
+            style={{ color: "#0D3B66" }}
+          >
             What Our Clients Say
           </h2>
-          <p className="mt-4 text-lg text-muted-foreground">
+          <p className="mt-4 text-lg" style={{ color: "#6B7280" }}>
             We are proud to have earned the trust of our clients.
           </p>
         </div>
@@ -45,22 +49,34 @@ export function Testimonials() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.3 }}
               transition={{ delay: index * 0.08, duration: 0.4 }}
-              className="group transition-transform duration-300 hover:-translate-y-1 hover:shadow-lg"
             >
-              <Card className="rounded">
+              <Card className="border-0 shadow-sm h-full">
                 <CardContent className="pt-6">
-                  <p className="text-lg leading-relaxed">
+                  <Quote 
+                    className="w-8 h-8 mb-4" 
+                    style={{ color: "#D4AF37" }} 
+                  />
+                  <p 
+                    className="text-lg leading-relaxed"
+                    style={{ color: "#1A1A1A" }}
+                  >
                     "{testimonial.quote}"
                   </p>
-                  <div className="mt-4 flex items-center">
+                  <div className="mt-6 flex items-center">
                     <img
                       src={testimonial.image}
                       alt={testimonial.author}
-                      className="w-12 h-12 rounded-full shadow-sm transition-transform duration-300 group-hover:scale-105"
+                      className="w-12 h-12 rounded-full"
+                      style={{ border: "2px solid #D4AF37" }}
                     />
                     <div className="ml-4">
-                      <p className="font-semibold">{testimonial.author}</p>
-                      <p className="text-sm text-muted-foreground">
+                      <p 
+                        className="font-semibold"
+                        style={{ color: "#0D3B66" }}
+                      >
+                        {testimonial.author}
+                      </p>
+                      <p className="text-sm" style={{ color: "#6B7280" }}>
                         {testimonial.company}
                       </p>
                     </div>
@@ -74,3 +90,5 @@ export function Testimonials() {
     </section>
   );
 }
+
+export default Testimonials;

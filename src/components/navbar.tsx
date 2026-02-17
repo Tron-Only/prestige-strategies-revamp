@@ -3,7 +3,7 @@ import {
   NavigationMenuItem,
   NavigationMenuList,
 } from "@/components/ui/navigation-menu";
-import { MountainIcon, Menu, Sun, Moon } from "lucide-react";
+import { MountainIcon, Menu } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { SheetHeader } from "@/components/ui/sheet";
 import { SheetTitle } from "@/components/ui/sheet";
@@ -22,21 +22,6 @@ const navLinks = [
 
 export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
-  const [isDark, setIsDark] = useState(false);
-
-  useEffect(() => {
-    try {
-      const stored = localStorage.getItem("theme");
-      const prefersDark =
-        window.matchMedia &&
-        window.matchMedia("(prefers-color-scheme: dark)").matches;
-      const shouldDark = stored ? stored === "dark" : prefersDark;
-      document.documentElement.classList.toggle("dark", shouldDark);
-      setIsDark(shouldDark);
-    } catch {
-      // ignore
-    }
-  }, []);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 4);
@@ -44,17 +29,6 @@ export function Navbar() {
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
-
-  const toggleTheme = () => {
-    const next = !isDark;
-    setIsDark(next);
-    try {
-      document.documentElement.classList.toggle("dark", next);
-      localStorage.setItem("theme", next ? "dark" : "light");
-    } catch {
-      // ignore
-    }
-  };
 
   return (
     <header
@@ -83,18 +57,6 @@ export function Navbar() {
               ))}
             </NavigationMenuList>
           </NavigationMenu>
-          <Button
-            variant="ghost"
-            size="icon"
-            onClick={toggleTheme}
-            aria-label={isDark ? "Switch to light mode" : "Switch to dark mode"}
-          >
-            {isDark ? (
-              <Sun className="h-5 w-5" />
-            ) : (
-              <Moon className="h-5 w-5" />
-            )}
-          </Button>
           <Button asChild variant="default" className="text-sm font-medium">
             <Link to="/contact">Contact us</Link>
           </Button>
@@ -129,14 +91,6 @@ export function Navbar() {
                     {link.label}
                   </Link>
                 ))}
-                <Button
-                  size="lg"
-                  variant="outline"
-                  onClick={toggleTheme}
-                  className="mt-2"
-                >
-                  {isDark ? "Light mode" : "Dark mode"}
-                </Button>
                 <Button asChild size="lg" variant="default" className="mt-4">
                   <Link to="/contact">Contact us</Link>
                 </Button>

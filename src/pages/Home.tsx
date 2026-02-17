@@ -1,4 +1,3 @@
-import TrustLogos from "@/components/TrustLogos";
 import { FeaturedTraining } from "@/components/home/FeaturedTraining";
 import { Hero } from "@/components/home/Hero";
 import { Services } from "@/components/home/Services";
@@ -15,7 +14,6 @@ export function HomePage() {
       <Benefits />
       <SectionDivider />
       <FeaturedTraining />
-      <TrustLogos />
       <SectionDivider variant="soft" />
       <Testimonials />
       <BottomCta />

@@ -25,32 +25,27 @@ export function BottomCta({
     <section
       aria-labelledby="bottom-cta-heading"
       className={`py-16 sm:py-24 ${className}`}
+      style={{ backgroundColor: "#FFFFFF" }}
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="relative overflow-hidden rounded-2xl border bg-card">
+        <div 
+          className="relative overflow-hidden rounded-2xl border"
+          style={{ backgroundColor: "#FFFFFF", borderColor: "#E5E5E5" }}
+        >
           {/* Soft gradient wash */}
-          <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-primary/10 via-primary/5 to-transparent" />
-
-          {/* Decorative glow blobs */}
-          <div className="pointer-events-none absolute -top-16 -left-20 h-64 w-64 rounded-full bg-primary/20 blur-3xl" />
-          <div className="pointer-events-none absolute -bottom-24 -right-10 h-72 w-72 rounded-full bg-sky-400/20 blur-3xl" />
-
-          {/* Subtle grid overlay */}
-          <div
-            aria-hidden="true"
-            className="pointer-events-none absolute inset-0 opacity-[0.06]"
-            style={{
-              backgroundImage:
-                "linear-gradient(to right, rgba(2,8,23,0.35) 1px, transparent 1px), linear-gradient(to bottom, rgba(2,8,23,0.35) 1px, transparent 1px)",
-              backgroundSize: "22px 22px",
-            }}
+          <div 
+            className="pointer-events-none absolute inset-0"
+            style={{ background: "linear-gradient(135deg, rgba(13,59,102,0.05) 0%, rgba(212,175,55,0.05) 100%)" }}
           />
 
           <div className="relative px-6 py-12 sm:px-10 sm:py-14 md:px-16 md:py-16">
             {/* Eyebrow */}
             <div className="mx-auto max-w-3xl text-center">
-              <span className="inline-flex items-center gap-2 rounded-full border bg-background px-3 py-1 text-xs font-medium text-muted-foreground">
-                <Sparkles className="h-3.5 w-3.5 text-primary" />
+              <span 
+                className="inline-flex items-center gap-2 rounded-full border px-3 py-1 text-xs font-medium"
+                style={{ backgroundColor: "#F4E4C1", borderColor: "#D4AF37", color: "#1A1A1A" }}
+              >
+                <Sparkles className="h-3.5 w-3.5" style={{ color: "#D4AF37" }} />
                 Tailored HR and People Ops
               </span>
             </div>
@@ -60,27 +55,41 @@ export function BottomCta({
               <h2
                 id="bottom-cta-heading"
                 className="text-balance text-3xl font-extrabold tracking-tight sm:text-4xl"
+                style={{ color: "#0D3B66" }}
               >
                 {title}
               </h2>
-              <p className="mt-4 text-lg text-muted-foreground">{subtitle}</p>
+              <p className="mt-4 text-lg" style={{ color: "#6B7280" }}>
+                {subtitle}
+              </p>
             </div>
 
             {/* Quick value bullets */}
             <div className="mx-auto mt-6 flex max-w-xl flex-col items-center gap-3 sm:flex-row sm:justify-center">
-              <div className="inline-flex items-center gap-2 rounded-full border bg-background/60 px-3 py-1 text-sm">
-                <ShieldCheck className="h-4 w-4 text-primary" />
+              <div 
+                className="inline-flex items-center gap-2 rounded-full border px-3 py-1 text-sm"
+                style={{ backgroundColor: "#FFFFFF", borderColor: "#E5E5E5" }}
+              >
+                <ShieldCheck className="h-4 w-4" style={{ color: "#D4AF37" }} />
                 Compliance-first
               </div>
-              <div className="inline-flex items-center gap-2 rounded-full border bg-background/60 px-3 py-1 text-sm">
-                <Users className="h-4 w-4 text-primary" />
+              <div 
+                className="inline-flex items-center gap-2 rounded-full border px-3 py-1 text-sm"
+                style={{ backgroundColor: "#FFFFFF", borderColor: "#E5E5E5" }}
+              >
+                <Users className="h-4 w-4" style={{ color: "#D4AF37" }} />
                 Local expertise
               </div>
             </div>
 
             {/* Actions */}
             <div className="mx-auto mt-8 flex max-w-md flex-col items-center justify-center gap-3 sm:flex-row">
-              <Button asChild size="lg" className="w-full sm:w-auto">
+              <Button 
+                asChild 
+                size="lg" 
+                className="w-full sm:w-auto"
+                style={{ backgroundColor: "#0D3B66" }}
+              >
                 <Link to={primaryHref}>
                   {primaryText}
                   <ArrowRight className="ml-2 h-4 w-4" />
@@ -98,11 +107,12 @@ export function BottomCta({
 
             {/* Microcopy */}
             <div className="mx-auto mt-5 max-w-3xl text-center">
-              <p className="text-sm text-muted-foreground">
+              <p className="text-sm" style={{ color: "#6B7280" }}>
                 Prefer email? Reach us at{" "}
                 <a
                   href="mailto:contact@prestigestrategies.com"
-                  className="font-medium text-primary hover:underline"
+                  className="font-medium hover:underline"
+                  style={{ color: "#0D3B66" }}
                 >
                   contact@prestigestrategies.com
                 </a>
