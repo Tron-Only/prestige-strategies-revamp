@@ -79,7 +79,7 @@ export function Services() {
                   </div>
                 </CardHeader>
                 <CardContent>
-                  <CardTitle className="text-xl font-semibold" style={{ color: "#0D3B66" }}>
+                  <CardTitle className="text-xl font-semibold" style={{ color: "#00CED1" }}>
                     {service.title}
                   </CardTitle>
                   <p className="mt-2" style={{ color: "#6B7280" }}>

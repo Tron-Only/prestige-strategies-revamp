@@ -28,24 +28,29 @@ type CalendarEvent = {
   allDay?: boolean;
 };
 
-const parseDate = (value: unknown): Date | null => {
-  if (!value || typeof value !== "string") return null;
-  const d = new Date(value);
-  return isNaN(d.getTime()) ? null : d;
-};
-
 const mapRawToCalendarEvents = (raw: RawEvent[]): CalendarEvent[] => {
   return raw
-    .map((r) => ({
-      title: String(r.title ?? "Untitled Event"),
-      start: parseDate(r.start) ?? new Date(),
-      end: parseDate(r.end) ?? new Date(),
-      description: String(r.description ?? ""),
-      location: String(r.location ?? ""),
-      url: String(r.url ?? ""),
-      allDay: !!r.allDay,
-    }))
-    .filter((e) => e.start && e.end);
+    .map((r) => {
+      // Handle API response format - events have date and time fields
+      const dateStr = String(r.date ?? '');
+      const timeStr = String(r.time ?? '00:00');
+      
+      // Combine date and time
+      const startDate = dateStr ? new Date(`${dateStr}T${timeStr}`) : new Date();
+      // End date is 1 hour after start by default
+      const endDate = new Date(startDate.getTime() + 60 * 60 * 1000);
+      
+      return {
+        title: String(r.title ?? "Untitled Event"),
+        start: startDate,
+        end: endDate,
+        description: String(r.description ?? ""),
+        location: String(r.location ?? ""),
+        url: String(r.registration_url ?? ""),
+        allDay: false,
+      };
+    })
+    .filter((e) => e.start && e.end && !isNaN(e.start.getTime()));
 };
 
 export function EventsPage(): React.ReactElement {
@@ -63,12 +68,14 @@ export function EventsPage(): React.ReactElement {
       setLoading(true);
       setError(null);
       try {
-        const res = await fetch("/events.json", { cache: "no-cache" });
+        const res = await fetch("/api/events/list.php?status=active", { cache: "no-cache" });
         if (!res.ok) throw new Error(`HTTP ${res.status}`);
-        const json = (await res.json()) as RawEvent[];
+        const apiResponse = await res.json();
+        // API returns {success: true, data: [...]}
+        const json = (apiResponse.data || []) as RawEvent[];
         if (!cancelled) setEvents(mapRawToCalendarEvents(json));
       } catch (err) {
-        console.error("Could not load /events.json:", err);
+        console.error("Could not load events from API:", err);
         if (!cancelled)
           setError("Could not load events. Please try again later.");
       } finally {

@@ -33,13 +33,20 @@ const Jobs: React.FC = () => {
   const [selectedLocation, setSelectedLocation] = useState<string | null>(null);
 
   useEffect(() => {
-    fetch("/jobs.json")
+    fetch("/api/jobs/list.php?status=active")
       .then((response) => response.json())
-      .then((data) => {
-        // Add posted dates for demo purposes
-        const jobsWithDates = data.map((job: Job, index: number) => ({
-          ...job,
-          postedDate: index === 0 ? "2 days ago" : "1 week ago",
+      .then((apiResponse) => {
+        // API returns {success: true, data: [...]}
+        const data = apiResponse.data || [];
+        // Add posted dates for demo purposes based on created_at
+        const jobsWithDates = data.map((job: any) => ({
+          id: job.id,
+          title: job.title,
+          location: job.location,
+          type: job.type,
+          description: job.description,
+          companyemail: job.application_url || '', // Use application_url as email fallback
+          postedDate: calculatePostedDate(job.created_at),
         }));
         setJobs(jobsWithDates);
         setLoading(false);
@@ -49,6 +56,21 @@ const Jobs: React.FC = () => {
         setLoading(false);
       });
   }, []);
+
+  const calculatePostedDate = (createdAt: string): string => {
+    const created = new Date(createdAt);
+    const now = new Date();
+    const diffMs = now.getTime() - created.getTime();
+    const diffDays = Math.floor(diffMs / (1000 * 60 * 60 * 24));
+    
+    if (diffDays === 0) return "Today";
+    if (diffDays === 1) return "1 day ago";
+    if (diffDays < 7) return `${diffDays} days ago`;
+    if (diffDays < 14) return "1 week ago";
+    if (diffDays < 30) return `${Math.floor(diffDays / 7)} weeks ago`;
+    if (diffDays < 60) return "1 month ago";
+    return `${Math.floor(diffDays / 30)} months ago`;
+  };
 
   // Extract unique values for filters
   const jobTypes = useMemo(() => {
@@ -87,7 +109,7 @@ const Jobs: React.FC = () => {
   return (
     <>
       {/* Hero Section */}
-      <section style={{ backgroundColor: "#0D3B66", color: "#FFFFFF" }}>
+      <section style={{ backgroundColor: "#00CED1", color: "#FFFFFF" }}>
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24">
           <div className="max-w-3xl mx-auto text-center">
             <h1 className="text-4xl md:text-6xl font-extrabold leading-tight">
@@ -129,8 +151,8 @@ const Jobs: React.FC = () => {
                   onClick={() => setSelectedType(selectedType === type ? null : type)}
                   className="px-4 py-2 rounded-full text-sm font-medium transition-colors"
                   style={{
-                    backgroundColor: selectedType === type ? "#0D3B66" : "#FFFFFF",
-                    color: selectedType === type ? "#FFFFFF" : "#0D3B66",
+                    backgroundColor: selectedType === type ? "#00CED1" : "#FFFFFF",
+                    color: selectedType === type ? "#FFFFFF" : "#00CED1",
                     border: "1px solid #E5E5E5",
                   }}
                 >
@@ -146,7 +168,7 @@ const Jobs: React.FC = () => {
                   className="px-4 py-2 rounded-full text-sm font-medium transition-colors"
                   style={{
                     backgroundColor: selectedLocation === location ? "#D4AF37" : "#FFFFFF",
-                    color: selectedLocation === location ? "#1A1A1A" : "#0D3B66",
+                    color: selectedLocation === location ? "#1A1A1A" : "#00CED1",
                     border: "1px solid #E5E5E5",
                   }}
                 >
@@ -200,14 +222,14 @@ const Jobs: React.FC = () => {
           // Empty State
           <div className="text-center py-16">
             <Building2 className="h-16 w-16 mx-auto mb-4" style={{ color: "#D4AF37" }} />
-            <h3 className="text-xl font-semibold mb-2" style={{ color: "#0D3B66" }}>
+            <h3 className="text-xl font-semibold mb-2" style={{ color: "#00CED1" }}>
               No jobs found
             </h3>
             <p style={{ color: "#6B7280" }}>
               Try adjusting your search or filters to find what you're looking for.
             </p>
             {hasActiveFilters && (
-              <Button onClick={clearFilters} className="mt-4" style={{ backgroundColor: "#0D3B66" }}>
+              <Button onClick={clearFilters} className="mt-4" style={{ backgroundColor: "#00CED1" }}>
                 Clear all filters
               </Button>
             )}
@@ -232,7 +254,7 @@ const Jobs: React.FC = () => {
                           New
                         </Badge>
                       )}
-                      <CardTitle className="text-xl font-bold" style={{ color: "#0D3B66" }}>
+                      <CardTitle className="text-xl font-bold" style={{ color: "#00CED1" }}>
                         {job.title}
                       </CardTitle>
                     </div>
@@ -278,7 +300,7 @@ const Jobs: React.FC = () => {
                     <Button 
                       onClick={() => setSelectedJobForApply(job)} 
                       className={job.description.length > 150 ? "flex-1" : "w-full"}
-                      style={{ backgroundColor: "#0D3B66" }}
+                      style={{ backgroundColor: "#00CED1" }}
                     >
                       Apply Now
                     </Button>
@@ -299,7 +321,7 @@ const Jobs: React.FC = () => {
                 <div className="flex-1">
                   <AlertDialogTitle 
                     className="text-2xl font-bold"
-                    style={{ color: "#0D3B66" }}
+                    style={{ color: "#00CED1" }}
                   >
                     {selectedJobForDetails.title}
                   </AlertDialogTitle>
@@ -324,7 +346,7 @@ const Jobs: React.FC = () => {
             
             <AlertDialogDescription asChild>
               <div className="mt-4">
-                <h3 className="text-lg font-semibold mb-3" style={{ color: "#0D3B66" }}>
+                <h3 className="text-lg font-semibold mb-3" style={{ color: "#00CED1" }}>
                   Job Description
                 </h3>
                 <div 
@@ -350,7 +372,7 @@ const Jobs: React.FC = () => {
                   setSelectedJobForDetails(null);
                 }}
                 className="flex-1"
-                style={{ backgroundColor: "#0D3B66" }}
+                style={{ backgroundColor: "#00CED1" }}
               >
                 Apply for this position
               </Button>

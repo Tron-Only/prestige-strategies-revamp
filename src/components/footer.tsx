@@ -8,8 +8,8 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           <div className="flex flex-col gap-4">
             <Link to="/" className="flex items-center justify-center gap-2">
-              <MountainIcon className="h-8 w-8" style={{ color: "#0D3B66" }} />
-              <span className="text-lg font-bold" style={{ color: "#0D3B66" }}>
+              <MountainIcon className="h-8 w-8" style={{ color: "#00CED1" }} />
+              <span className="text-lg font-bold" style={{ color: "#00CED1" }}>
                 Prestige Strategies
               </span>
             </Link>
@@ -19,7 +19,7 @@ export function Footer() {
             </p>
           </div>
           <div>
-            <h3 className="text-lg font-semibold" style={{ color: "#0D3B66" }}>
+            <h3 className="text-lg font-semibold" style={{ color: "#00CED1" }}>
               Quick Links
             </h3>
             <ul className="mt-4 space-y-2">
@@ -62,7 +62,7 @@ export function Footer() {
             </ul>
           </div>
           <div>
-            <h3 className="text-lg font-semibold" style={{ color: "#0D3B66" }}>
+            <h3 className="text-lg font-semibold" style={{ color: "#00CED1" }}>
               Contact Us
             </h3>
             <address className="mt-4 space-y-2 not-italic" style={{ color: "#6B7280" }}>
@@ -70,7 +70,7 @@ export function Footer() {
               <p>
                 <a
                   href="mailto:info@prestigestrategies.com"
-                  style={{ color: "#0D3B66" }}
+                  style={{ color: "#00CED1" }}
                   className="hover:underline"
                 >
                   info@prestigestrategies.com
@@ -79,7 +79,7 @@ export function Footer() {
               <p>
                 <a 
                   href="tel:+254722799202" 
-                  style={{ color: "#0D3B66" }}
+                  style={{ color: "#00CED1" }}
                   className="hover:underline"
                 >
                   +254 722 799 202

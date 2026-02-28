@@ -1,39 +1,44 @@
+import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { PlayCircle, BookOpen, Star } from "lucide-react";
+import { PlayCircle, BookOpen, GraduationCap, Clock } from "lucide-react";
+import { api } from "@/services/api";
 
-const courses = [
-  {
-    title: "Leadership for the Modern Workplace",
-    description:
-      "Master the skills needed to lead teams effectively in a hybrid environment.",
-    duration: "4 weeks",
-    rating: 4.8,
-    reviews: 120,
-    image: "https://picsum.photos/seed/leadership/600/400",
-  },
-  {
-    title: "HR Analytics: Data-Driven Decision Making",
-    description:
-      "Learn how to use data to make smarter HR decisions and drive business outcomes.",
-    duration: "6 weeks",
-    rating: 4.9,
-    reviews: 250,
-    image: "https://picsum.photos/seed/hr-analytics/600/400",
-  },
-  {
-    title: "Payroll & Compliance Masterclass",
-    description:
-      "A deep dive into Kenyan payroll regulations and compliance best practices.",
-    duration: "3 weeks",
-    rating: 4.7,
-    reviews: 95,
-    image: "https://picsum.photos/seed/payroll/600/400",
-  },
-];
+interface Course {
+  id: number;
+  title: string;
+  description: string;
+  price: number;
+  currency: string;
+  thumbnail: string;
+  category: string;
+  level: string;
+  duration_hours: number;
+}
 
 export function ElearningPage() {
+  const [courses, setCourses] = useState<Course[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState("");
+
+  useEffect(() => {
+    loadCourses();
+  }, []);
+
+  const loadCourses = async () => {
+    try {
+      setLoading(true);
+      // Load only published courses
+      const response = await api.get("/api/courses/list.php?status=published");
+      setCourses(response.data);
+    } catch (err: any) {
+      setError(err.message || "Failed to load courses");
+    } finally {
+      setLoading(false);
+    }
+  };
+
   return (
     <>
       <section className="bg-background text-foreground">
@@ -60,43 +65,72 @@ export function ElearningPage() {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {courses.map((course, index) => (
-            <Card
-              key={index}
-              className="flex flex-col transform hover:scale-105 transition-transform duration-300"
-            >
-              <CardHeader className="p-0">
-                <img
-                  src={course.image}
-                  alt={course.title}
-                  className="rounded-t-lg h-48 w-full object-cover"
-                />
-              </CardHeader>
-              <CardContent className="grow p-6">
-                <CardTitle className="mb-2">{course.title}</CardTitle>
-                <p className="text-muted-foreground text-sm mb-4">
-                  {course.description}
-                </p>
-                <div className="flex justify-between items-center text-sm text-muted-foreground mb-4">
-                  <div className="flex items-center">
-                    <BookOpen className="mr-2 h-4 w-4" /> {course.duration}
+        {error && (
+          <div className="bg-red-50 border border-red-200 text-red-600 px-4 py-3 rounded-lg mb-6 text-center">
+            {error}
+          </div>
+        )}
+
+        {loading ? (
+          <div className="flex items-center justify-center py-20">
+            <div className="text-muted-foreground">Loading courses...</div>
+          </div>
+        ) : courses.length === 0 ? (
+          <div className="bg-secondary/50 rounded-lg p-12 text-center">
+            <GraduationCap className="mx-auto h-16 w-16 text-muted-foreground mb-4" />
+            <p className="text-muted-foreground text-lg">No courses available yet</p>
+            <p className="text-muted-foreground/70 mt-2">Check back soon for new courses!</p>
+          </div>
+        ) : (
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {courses.map((course) => (
+              <Card
+                key={course.id}
+                className="flex flex-col transform hover:scale-105 transition-transform duration-300"
+              >
+                <CardHeader className="p-0">
+                  {course.thumbnail ? (
+                    <img
+                      src={course.thumbnail}
+                      alt={course.title}
+                      className="rounded-t-lg h-48 w-full object-cover"
+                    />
+                  ) : (
+                    <div className="rounded-t-lg h-48 w-full bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center">
+                      <GraduationCap className="h-20 w-20 text-white opacity-50" />
+                    </div>
+                  )}
+                </CardHeader>
+                <CardContent className="grow p-6">
+                  <CardTitle className="mb-2">{course.title}</CardTitle>
+                  <p className="text-muted-foreground text-sm mb-4 line-clamp-3">
+                    {course.description}
+                  </p>
+                  <div className="flex justify-between items-center text-sm text-muted-foreground mb-4">
+                    <div className="flex items-center">
+                      <Clock className="mr-2 h-4 w-4" /> {course.duration_hours}h
+                    </div>
+                    <div className="flex items-center capitalize">
+                      <BookOpen className="mr-2 h-4 w-4" />
+                      {course.level}
+                    </div>
                   </div>
-                  <div className="flex items-center">
-                    <Star className="mr-1 h-4 w-4 text-yellow-400" />
-                    {course.rating} ({course.reviews} reviews)
+                  <div className="mb-4">
+                    <div className="text-2xl font-bold text-primary">
+                      {course.currency} {course.price.toLocaleString()}
+                    </div>
                   </div>
-                </div>
-                <Button asChild className="w-full">
-                  <Link to="#">
-                    <PlayCircle className="mr-2 h-4 w-4" />
-                    Start Learning
-                  </Link>
-                </Button>
-              </CardContent>
-            </Card>
-          ))}
-        </div>
+                  <Button asChild className="w-full">
+                    <Link to={`/courses/${course.id}`}>
+                      <PlayCircle className="mr-2 h-4 w-4" />
+                      View Course
+                    </Link>
+                  </Button>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        )}
 
         <div className="text-center mt-16 bg-secondary p-8 rounded-lg">
           <h2 className="text-3xl font-extrabold tracking-tight sm:text-4xl">

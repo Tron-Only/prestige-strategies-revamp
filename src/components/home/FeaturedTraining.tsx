@@ -38,7 +38,7 @@ export function FeaturedTraining() {
             </span>
             <h2 
               className="text-3xl font-extrabold tracking-tight sm:text-4xl"
-              style={{ color: "#0D3B66" }}
+              style={{ color: "#00CED1" }}
             >
               Personal Mastery
             </h2>
@@ -51,7 +51,7 @@ export function FeaturedTraining() {
               <Button 
                 asChild 
                 size="lg"
-                style={{ backgroundColor: "#0D3B66" }}
+                style={{ backgroundColor: "#00CED1" }}
               >
                 <Link to="/e-learning">Learn More & Register</Link>
               </Button>

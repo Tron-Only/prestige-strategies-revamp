@@ -55,7 +55,7 @@ export function BottomCta({
               <h2
                 id="bottom-cta-heading"
                 className="text-balance text-3xl font-extrabold tracking-tight sm:text-4xl"
-                style={{ color: "#0D3B66" }}
+                style={{ color: "#00CED1" }}
               >
                 {title}
               </h2>
@@ -88,7 +88,7 @@ export function BottomCta({
                 asChild 
                 size="lg" 
                 className="w-full sm:w-auto"
-                style={{ backgroundColor: "#0D3B66" }}
+                style={{ backgroundColor: "#00CED1" }}
               >
                 <Link to={primaryHref}>
                   {primaryText}
@@ -112,7 +112,7 @@ export function BottomCta({
                 <a
                   href="mailto:contact@prestigestrategies.com"
                   className="font-medium hover:underline"
-                  style={{ color: "#0D3B66" }}
+                  style={{ color: "#00CED1" }}
                 >
                   contact@prestigestrategies.com
                 </a>

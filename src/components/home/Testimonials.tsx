@@ -33,7 +33,7 @@ export function Testimonials() {
         <div className="text-center">
           <h2 
             className="text-3xl font-extrabold tracking-tight sm:text-4xl"
-            style={{ color: "#0D3B66" }}
+            style={{ color: "#00CED1" }}
           >
             What Our Clients Say
           </h2>
@@ -72,7 +72,7 @@ export function Testimonials() {
                     <div className="ml-4">
                       <p 
                         className="font-semibold"
-                        style={{ color: "#0D3B66" }}
+                        style={{ color: "#00CED1" }}
                       >
                         {testimonial.author}
                       </p>

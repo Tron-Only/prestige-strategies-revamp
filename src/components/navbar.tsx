@@ -3,25 +3,27 @@ import {
   NavigationMenuItem,
   NavigationMenuList,
 } from "@/components/ui/navigation-menu";
-import { MountainIcon, Menu } from "lucide-react";
+import { MountainIcon, Menu, User } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { SheetHeader } from "@/components/ui/sheet";
 import { SheetTitle } from "@/components/ui/sheet";
 import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
+import { useStudentAuth } from "@/contexts/StudentAuthContext";
 
 const navLinks = [
   { to: "/services", label: "Services" },
   { to: "/about", label: "About us" },
   { to: "/resources", label: "Resources" },
   { to: "/events", label: "Events" },
-  { to: "/e-learning", label: "E-learning" },
+  { to: "/courses", label: "Courses" },
   { to: "/jobs", label: "Jobs" },
 ];
 
 export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
+  const { isAuthenticated } = useStudentAuth();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 4);
@@ -57,6 +59,14 @@ export function Navbar() {
               ))}
             </NavigationMenuList>
           </NavigationMenu>
+          {isAuthenticated ? (
+            <Button asChild variant="outline" className="text-sm font-medium">
+              <Link to="/dashboard">
+                <User className="mr-2 h-4 w-4" />
+                My Dashboard
+              </Link>
+            </Button>
+          ) : null}
           <Button asChild variant="default" className="text-sm font-medium">
             <Link to="/contact">Contact us</Link>
           </Button>

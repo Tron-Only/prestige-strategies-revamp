@@ -8,7 +8,7 @@ export function Hero() {
         <div className="max-w-3xl mx-auto text-center">
           <h1 
             className="text-5xl md:text-7xl font-extrabold leading-tight"
-            style={{ color: "#0D3B66" }}
+            style={{ color: "#00CED1" }}
           >
             Welcome to Prestige Strategies
           </h1>
@@ -21,7 +21,7 @@ export function Hero() {
           </p>
 
           <div className="mt-8 flex items-center justify-center gap-4">
-            <Button asChild size="lg" style={{ backgroundColor: "#0D3B66" }}>
+            <Button asChild size="lg" style={{ backgroundColor: "#00CED1" }}>
               <Link to="/services">Explore Services</Link>
             </Button>
             <Button asChild size="lg" variant="outline">

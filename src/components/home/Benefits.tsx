@@ -118,7 +118,7 @@ export function Benefits({ className = "" }: BenefitsProps) {
           <h2
             id="benefits-heading"
             className="text-3xl font-extrabold tracking-tight sm:text-4xl"
-            style={{ color: "#0D3B66" }}
+            style={{ color: "#00CED1" }}
           >
             Our Benefits
           </h2>
@@ -149,7 +149,7 @@ export function Benefits({ className = "" }: BenefitsProps) {
                 <CardContent>
                   <CardTitle 
                     className="text-xl font-semibold"
-                    style={{ color: "#0D3B66" }}
+                    style={{ color: "#00CED1" }}
                   >
                     {item.title}
                   </CardTitle>
@@ -172,7 +172,7 @@ export function Benefits({ className = "" }: BenefitsProps) {
             viewport={{ once: true, amount: 0.3 }}
             transition={{ delay: 0.1, duration: 0.4 }}
           >
-            <div className="text-3xl font-extrabold" style={{ color: "#0D3B66" }}>
+            <div className="text-3xl font-extrabold" style={{ color: "#00CED1" }}>
               <Counter to={1000} suffix="+" />
             </div>
             <div className="mt-1 text-sm" style={{ color: "#6B7280" }}>
@@ -187,7 +187,7 @@ export function Benefits({ className = "" }: BenefitsProps) {
             viewport={{ once: true, amount: 0.3 }}
             transition={{ delay: 0.2, duration: 0.4 }}
           >
-            <div className="text-3xl font-extrabold" style={{ color: "#0D3B66" }}>
+            <div className="text-3xl font-extrabold" style={{ color: "#00CED1" }}>
               <Counter to={50} suffix="+" />
             </div>
             <div className="mt-1 text-sm" style={{ color: "#6B7280" }}>
@@ -202,7 +202,7 @@ export function Benefits({ className = "" }: BenefitsProps) {
             viewport={{ once: true, amount: 0.3 }}
             transition={{ delay: 0.3, duration: 0.4 }}
           >
-            <div className="text-3xl font-extrabold" style={{ color: "#0D3B66" }}>
+            <div className="text-3xl font-extrabold" style={{ color: "#00CED1" }}>
               <Counter to={10} suffix="+" />
             </div>
             <div className="mt-1 text-sm" style={{ color: "#6B7280" }}>
@@ -217,7 +217,7 @@ export function Benefits({ className = "" }: BenefitsProps) {
             viewport={{ once: true, amount: 0.3 }}
             transition={{ delay: 0.4, duration: 0.4 }}
           >
-            <div className="text-3xl font-extrabold" style={{ color: "#0D3B66" }}>
+            <div className="text-3xl font-extrabold" style={{ color: "#00CED1" }}>
               <Counter to={98} suffix="%" />
             </div>
             <div className="mt-1 text-sm" style={{ color: "#6B7280" }}>
@@ -228,7 +228,7 @@ export function Benefits({ className = "" }: BenefitsProps) {
 
         {/* CTA */}
         <div className="mt-12 text-center">
-          <Button asChild size="lg" style={{ backgroundColor: "#0D3B66" }}>
+          <Button asChild size="lg" style={{ backgroundColor: "#00CED1" }}>
             <Link to="/contact">Talk to our team</Link>
           </Button>
         </div>

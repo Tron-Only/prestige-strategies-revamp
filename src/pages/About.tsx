@@ -40,7 +40,7 @@ export function AboutPage() {
       {/* Hero Section */}
       <section style={{ backgroundColor: "#FFFFFF", color: "#1A1A1A" }}>
         <div className="container mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 py-20 md:py-28 text-center">
-          <h1 className="text-5xl md:text-7xl font-extrabold leading-tight" style={{ color: "#0D3B66" }}>
+          <h1 className="text-5xl md:text-7xl font-extrabold leading-tight" style={{ color: "#00CED1" }}>
             We're Prestige Strategies
           </h1>
           <p className="mt-6 text-lg md:text-2xl max-w-2xl mx-auto" style={{ color: "#6B7280" }}>
@@ -54,7 +54,7 @@ export function AboutPage() {
       <section className="py-16 sm:py-24">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
-            <h2 className="text-3xl font-extrabold tracking-tight sm:text-4xl" style={{ color: "#0D3B66" }}>
+            <h2 className="text-3xl font-extrabold tracking-tight sm:text-4xl" style={{ color: "#00CED1" }}>
               Our Mission
             </h2>
             <p className="mt-4 text-lg max-w-3xl mx-auto" style={{ color: "#6B7280" }}>
@@ -70,7 +70,7 @@ export function AboutPage() {
       <section className="py-16 sm:py-24" style={{ backgroundColor: "#F8F6F0" }}>
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
-            <h2 className="text-3xl font-extrabold tracking-tight sm:text-4xl" style={{ color: "#0D3B66" }}>
+            <h2 className="text-3xl font-extrabold tracking-tight sm:text-4xl" style={{ color: "#00CED1" }}>
               Our Values
             </h2>
             <p className="mt-4 text-lg" style={{ color: "#6B7280" }}>
@@ -87,7 +87,7 @@ export function AboutPage() {
                 >
                   {value.icon}
                 </div>
-                <h3 className="mt-6 text-xl font-semibold" style={{ color: "#0D3B66" }}>{value.title}</h3>
+                <h3 className="mt-6 text-xl font-semibold" style={{ color: "#00CED1" }}>{value.title}</h3>
                 <p className="mt-2" style={{ color: "#6B7280" }}>{value.text}</p>
               </div>
             ))}
@@ -99,7 +99,7 @@ export function AboutPage() {
       <section className="py-16 sm:py-24" style={{ backgroundColor: "#F8F6F0" }}>
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
-            <h2 className="text-3xl font-extrabold tracking-tight sm:text-4xl" style={{ color: "#0D3B66" }}>
+            <h2 className="text-3xl font-extrabold tracking-tight sm:text-4xl" style={{ color: "#00CED1" }}>
               Sectors We Serve
             </h2>
             <p className="mt-4 text-lg" style={{ color: "#6B7280" }}>
@@ -123,7 +123,7 @@ export function AboutPage() {
       {/* Closing CTA Section */}
       <section className="py-16 sm:py-24">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl font-extrabold tracking-tight sm:text-4xl" style={{ color: "#0D3B66" }}>
+          <h2 className="text-3xl font-extrabold tracking-tight sm:text-4xl" style={{ color: "#00CED1" }}>
             Ready to Take the Next Step?
           </h2>
           <p className="mt-4 text-lg" style={{ color: "#6B7280" }}>
@@ -131,7 +131,7 @@ export function AboutPage() {
             your goals.
           </p>
           <div className="mt-8">
-            <Button asChild size="lg" style={{ backgroundColor: "#0D3B66" }}>
+            <Button asChild size="lg" style={{ backgroundColor: "#00CED1" }}>
               <Link to="/contact">Get in Touch</Link>
             </Button>
           </div>
