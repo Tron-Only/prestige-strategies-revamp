@@ -130,7 +130,7 @@ export default function Courses() {
         </div>
 
         <div className="mb-6">
-          <p style={{ color: '#6B7280' }}>
+            <p style={{ color: '#6B7280' }}>
             Showing {filteredCourses.length} {filteredCourses.length === 1 ? 'course' : 'courses'}
           </p>
         </div>
@@ -208,7 +208,7 @@ export default function Courses() {
         {!loading && filteredCourses.length > 0 && (
           <div className="mt-12 bg-white border rounded p-6 text-center" style={{ borderColor: '#E5E5E5' }}>
             <p style={{ color: '#00CED1' }}>
-              <strong>Ready to start learning?</strong> Click on any course to view details and enroll with M-Pesa payment.
+              <strong>Ready to start learning?</strong> Click on any course to view details. Payments are currently disabled — contact support to enroll.
             </p>
           </div>
         )}

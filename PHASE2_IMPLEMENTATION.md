@@ -190,6 +190,8 @@ Same fields as create, plus `id`.
 
 ## 💳 M-Pesa Payment Integration
 
+> NOTE: The M-Pesa Daraja payment integration (STK Push and webhook callback) has been removed from the active codebase per project decision. Credentials were removed from `.env`. Historical database tables (payments) remain for audit/history. See `.sisyphus/plans/remove-mpesa-and-resources-plan.md` for rationale and migration options.
+
 ### Initiate Payment (STK Push)
 **POST** `/api/payments/initiate.php`
 

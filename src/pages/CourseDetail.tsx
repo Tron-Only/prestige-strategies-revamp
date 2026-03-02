@@ -3,7 +3,7 @@ import { useParams, Link, useNavigate } from 'react-router-dom';
 import { api } from '@/services/api';
 import { useStudentAuth } from '@/contexts/StudentAuthContext';
 import GoogleSignIn from '@/components/auth/GoogleSignIn';
-import MpesaModal from '@/components/payment/MpesaModal';
+// Payment component removed
 import { 
   GraduationCap, 
   Clock, 
@@ -43,6 +43,7 @@ export default function CourseDetail() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
   const [showEnrollModal, setShowEnrollModal] = useState(false);
+  // payment flow removed; keeping flag for backward compatibility but unused
   const [showPaymentModal, setShowPaymentModal] = useState(false);
   const [checkingEnrollment, setCheckingEnrollment] = useState(false);
 
@@ -133,13 +134,12 @@ export default function CourseDetail() {
           console.log('User already enrolled! Redirecting to player...');
           navigate(`/learn/${id}`);
         } else {
-          // Not enrolled, show payment modal
-          setShowPaymentModal(true);
+          // Not enrolled — payments are disabled. Instruct user to contact admin/support
+          alert('Payments are disabled. Please contact support to enroll in this course.');
         }
       } catch (err) {
         console.error('Failed to check enrollment:', err);
-        // On error, just show payment modal
-        setShowPaymentModal(true);
+        alert('Enrollment check failed — contact support.');
       }
     }
   };
@@ -175,10 +175,7 @@ export default function CourseDetail() {
     }
   };
 
-  const handlePaymentSuccess = () => {
-    // Redirect to course player
-    window.location.href = `/learn/${id}`;
-  };
+  // Payment flow removed
 
   if (loading) {
     return (
@@ -411,17 +408,7 @@ export default function CourseDetail() {
       )}
 
       {/* M-Pesa Payment Modal */}
-      {course && showPaymentModal && (
-        <MpesaModal
-          isOpen={showPaymentModal}
-          onClose={() => setShowPaymentModal(false)}
-          courseId={course.id}
-          courseTitle={course.title}
-          amount={course.price}
-          currency={course.currency}
-          onPaymentSuccess={handlePaymentSuccess}
-        />
-      )}
+      {/* Payment UI removed — payments disabled */}
     </div>
   );
 }
