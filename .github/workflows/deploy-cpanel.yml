@@ -1,0 +1,52 @@
+name: Build and Deploy to cPanel
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+concurrency:
+  group: cpanel-deploy-main
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build app
+        run: npm run build
+
+      - name: Prepare deployment package
+        run: |
+          mkdir -p deploy
+          cp -r dist/* deploy/
+          if [ -f public/.htaccess ]; then cp public/.htaccess deploy/.htaccess; fi
+          if [ -d public/api ]; then mkdir -p deploy/api && cp -r public/api/* deploy/api/; fi
+          if [ -f public/jobs.php ]; then cp public/jobs.php deploy/jobs.php; fi
+          if [ -f public/jobs.json ]; then cp public/jobs.json deploy/jobs.json; fi
+          if [ -f public/events.json ]; then cp public/events.json deploy/events.json; fi
+          if [ -f public/resources.json ]; then cp public/resources.json deploy/resources.json; fi
+
+      - name: Deploy over FTP
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+          server: ${{ secrets.CPANEL_FTP_SERVER }}
+          username: ${{ secrets.CPANEL_FTP_USERNAME }}
+          password: ${{ secrets.CPANEL_FTP_PASSWORD }}
+          local-dir: deploy/
+          server-dir: ${{ secrets.CPANEL_FTP_TARGET_DIR }}
+          dangerous-clean-slate: false

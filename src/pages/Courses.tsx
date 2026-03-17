@@ -52,6 +52,19 @@ export default function Courses() {
     return matchesSearch && matchesCategory && matchesLevel;
   });
 
+  const getConstructionProgress = (level: string) => {
+    switch (level) {
+      case 'beginner':
+        return 85;
+      case 'intermediate':
+        return 65;
+      case 'advanced':
+        return 45;
+      default:
+        return 60;
+    }
+  };
+
   const getLevelColor = (level: string) => {
     switch (level) {
       case 'beginner':
@@ -76,6 +89,10 @@ export default function Courses() {
             <p className="text-xl max-w-2xl mx-auto" style={{ color: '#6B7280' }}>
               Learn new skills and advance your career with our expert-led courses
             </p>
+            <div className="mt-6 inline-flex items-center gap-2 px-4 py-2 rounded-full border text-sm font-semibold" style={{ backgroundColor: '#F4E4C1', borderColor: '#D4AF37', color: '#00CED1' }}>
+              <span>Under Construction</span>
+              <span style={{ color: '#6B7280' }}>New modules added weekly</span>
+            </div>
           </div>
         </div>
       </div>
@@ -188,6 +205,19 @@ export default function Courses() {
                     {course.description}
                   </p>
 
+                  <div className="mb-4 p-3 rounded" style={{ backgroundColor: '#F8F6F0' }}>
+                    <div className="flex items-center justify-between text-xs font-semibold mb-2" style={{ color: '#6B7280' }}>
+                      <span>Curriculum build progress</span>
+                      <span style={{ color: '#00CED1' }}>{getConstructionProgress(course.level)}%</span>
+                    </div>
+                    <div className="h-2 rounded-full overflow-hidden" style={{ backgroundColor: '#E5E5E5' }}>
+                      <div
+                        className="h-full"
+                        style={{ width: `${getConstructionProgress(course.level)}%`, backgroundColor: '#D4AF37' }}
+                      />
+                    </div>
+                  </div>
+
                   <div className="flex items-center justify-between pt-4 border-t" style={{ borderColor: '#E5E5E5' }}>
                     <div className="flex items-center gap-1 text-sm" style={{ color: '#6B7280' }}>
                       <Clock size={16} />
@@ -208,7 +238,7 @@ export default function Courses() {
         {!loading && filteredCourses.length > 0 && (
           <div className="mt-12 bg-white border rounded p-6 text-center" style={{ borderColor: '#E5E5E5' }}>
             <p style={{ color: '#00CED1' }}>
-              <strong>Ready to start learning?</strong> Click on any course to view details. Payments are currently disabled — contact support to enroll.
+              <strong>Ready to start learning?</strong> Click any course to view the rollout timeline and join the early-access waitlist.
             </p>
           </div>
         )}
