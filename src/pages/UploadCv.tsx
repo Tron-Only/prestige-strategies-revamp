@@ -97,7 +97,7 @@ export function UploadCvPage() {
               </div>
               <div className="space-y-2">
                 <label htmlFor="phone">Phone Number</label>
-                <Input id="phone" type="tel" placeholder="+254 700 000 000" />
+                <Input id="phone" type="tel" placeholder="+254 722 799 202" />
               </div>
               <div className="space-y-2">
                 <label htmlFor="cover-letter">Cover Letter (Optional)</label>

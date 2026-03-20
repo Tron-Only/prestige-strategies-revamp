@@ -66,7 +66,6 @@ export function Footer() {
               Contact Us
             </h3>
             <address className="mt-4 space-y-2 not-italic" style={{ color: "#6B7280" }}>
-              <p>123 Prestige Plaza, Nairobi, Kenya</p>
               <p>
                 <a
                   href="mailto:info@prestigestrategies.com"

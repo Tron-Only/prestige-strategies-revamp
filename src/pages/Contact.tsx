@@ -10,7 +10,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { Phone, Mail, MapPin } from "lucide-react";
+import { Phone, Mail } from "lucide-react";
 
 type FormState = {
   name: string;
@@ -85,20 +85,16 @@ export function ContactPage() {
           <div>
             <h2 className="text-3xl font-bold mb-4">Contact Information</h2>
             <p className="text-muted-foreground mb-8">
-              You can reach us via email, phone, or by visiting our office.
+              You can reach us via email or phone.
             </p>
             <div className="space-y-4">
               <div className="flex items-center">
                 <Phone className="h-6 w-6 mr-4 text-primary" />
-                <span>+254 700 000 000</span>
+                <span>+254 722 799 202</span>
               </div>
               <div className="flex items-center">
                 <Mail className="h-6 w-6 mr-4 text-primary" />
                 <span>contact@prestigestrategies.com</span>
-              </div>
-              <div className="flex items-center">
-                <MapPin className="h-6 w-6 mr-4 text-primary" />
-                <span>123 Prestige Plaza, Nairobi, Kenya</span>
               </div>
             </div>
           </div>
