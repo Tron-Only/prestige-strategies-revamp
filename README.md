@@ -26,6 +26,12 @@ Add these in GitHub: `Settings -> Secrets and variables -> Actions`
 - `CPANEL_FTP_PASSWORD`
 - `CPANEL_FTP_TARGET_DIR` (example: `/public_html/`)
 
+For this hosting setup (Explicit FTPS on port 21), the workflow is configured with:
+
+- `protocol: ftps`
+- `port: 21`
+- longer timeout for slower shared hosting links
+
 Template values are in `.github/workflows/deploy-cpanel.yml.example-secrets`.
 
 ### Important note about `.env`

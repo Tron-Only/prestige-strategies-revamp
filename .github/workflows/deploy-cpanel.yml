@@ -47,6 +47,9 @@ jobs:
           server: ${{ secrets.CPANEL_FTP_SERVER }}
           username: ${{ secrets.CPANEL_FTP_USERNAME }}
           password: ${{ secrets.CPANEL_FTP_PASSWORD }}
+          protocol: ftps
+          port: 21
+          timeout: 120000
           local-dir: deploy/
           server-dir: ${{ secrets.CPANEL_FTP_TARGET_DIR }}
           dangerous-clean-slate: false
