@@ -57,8 +57,11 @@ export default function Dashboard() {
 
   return (
     <div className="space-y-6">
-      <div>
-        <h1 className="text-3xl font-bold" style={{ color: '#00CED1' }}>Dashboard</h1>
+      <div className="bg-white rounded-xl border shadow-sm p-6" style={{ borderColor: '#E5E5E5' }}>
+        <p className="text-xs uppercase tracking-[0.14em] font-semibold" style={{ color: '#D4AF37' }}>
+          Overview
+        </p>
+        <h1 className="text-3xl font-bold mt-1" style={{ color: '#00CED1' }}>Dashboard</h1>
         <p className="mt-2" style={{ color: '#6B7280' }}>Overview of your Prestige Strategies platform</p>
       </div>
 
@@ -75,7 +78,7 @@ export default function Dashboard() {
       ) : (
         <>
           {/* Stats Cards */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
             <StatCard
               title="Total Jobs"
               value={stats.totalJobs}
@@ -107,19 +110,19 @@ export default function Dashboard() {
           </div>
 
           {/* Quick Actions */}
-          <div className="bg-white rounded shadow-sm p-6 border" style={{ borderColor: '#E5E5E5' }}>
+          <div className="bg-white rounded-xl shadow-sm p-6 border" style={{ borderColor: '#E5E5E5' }}>
             <h2 className="text-xl font-semibold mb-4" style={{ color: '#00CED1' }}>Quick Actions</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <Link
                 to="/admin/jobs/new"
-                className="flex items-center justify-center px-4 py-3 border-0 rounded shadow-sm text-sm font-medium text-white transition-opacity hover:opacity-90"
+                className="flex items-center justify-center px-4 py-3 border-0 rounded-lg shadow-sm text-sm font-medium text-white transition-opacity hover:opacity-90"
                 style={{ backgroundColor: '#00CED1' }}
               >
                 Create New Job
               </Link>
               <Link
                 to="/admin/events/new"
-                className="flex items-center justify-center px-4 py-3 border rounded shadow-sm text-sm font-medium transition-opacity hover:opacity-90"
+                className="flex items-center justify-center px-4 py-3 border rounded-lg shadow-sm text-sm font-medium transition-opacity hover:opacity-90"
                 style={{ backgroundColor: '#D4AF37', color: '#FFFFFF', border: 'none' }}
               >
                 Create New Event
@@ -142,7 +145,7 @@ interface StatCardProps {
 
 function StatCard({ title, value, subtitle, link, linkText }: StatCardProps) {
   return (
-    <div className="border rounded p-6 bg-white shadow-sm" style={{ borderColor: '#E5E5E5' }}>
+    <div className="border rounded-xl p-6 bg-white shadow-sm" style={{ borderColor: '#E5E5E5' }}>
       <h3 className="text-sm font-medium" style={{ color: '#6B7280' }}>{title}</h3>
       <p className="mt-2 text-4xl font-bold" style={{ color: '#00CED1' }}>{value}</p>
       <p className="mt-1 text-sm" style={{ color: '#6B7280' }}>{subtitle}</p>

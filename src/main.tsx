@@ -31,6 +31,7 @@ import EventForm from "./pages/admin/EventForm.tsx";
 import CoursesList from "./pages/admin/CoursesList.tsx";
 import CourseForm from "./pages/admin/CourseForm.tsx";
 import ModuleManager from "./pages/admin/ModuleManager.tsx";
+import ResourcesManager from "./pages/admin/ResourcesManager.tsx";
 
 // Student imports
 import StudentDashboard from "./pages/StudentDashboard.tsx";
@@ -154,6 +155,10 @@ const router = createBrowserRouter([
       {
         path: "courses/:id/modules",
         element: <ModuleManager />,
+      },
+      {
+        path: "resources",
+        element: <ResourcesManager />,
       },
       {
         index: true,

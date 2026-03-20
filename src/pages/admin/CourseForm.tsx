@@ -1,6 +1,7 @@
 import { useState, useEffect, type FormEvent } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { api } from '@/services/api';
+import AdminPageHeader from '@/components/admin/AdminPageHeader';
 
 interface CourseFormData {
   title: string;
@@ -92,14 +93,10 @@ export default function CourseForm() {
 
   return (
     <div className="space-y-6">
-      <div>
-        <h1 className="text-3xl font-bold text-gray-900">
-          {isEdit ? 'Edit Course' : 'Create New Course'}
-        </h1>
-        <p className="mt-2 text-gray-600">
-          {isEdit ? 'Update course details' : 'Add a new course to the catalog'}
-        </p>
-      </div>
+      <AdminPageHeader
+        title={isEdit ? 'Edit Course' : 'Create New Course'}
+        description={isEdit ? 'Update course details' : 'Add a new course to the catalog'}
+      />
 
       {error && (
         <div className="bg-red-50 border border-red-200 text-red-600 px-4 py-3 rounded">
@@ -107,7 +104,7 @@ export default function CourseForm() {
         </div>
       )}
 
-      <form onSubmit={handleSubmit} className="bg-white rounded-lg shadow p-6 space-y-6">
+      <form onSubmit={handleSubmit} className="bg-white rounded-xl border shadow-sm p-6 space-y-6" style={{ borderColor: '#E5E5E5' }}>
         {/* Course Title */}
         <div>
           <label htmlFor="title" className="block text-sm font-medium text-gray-700">
@@ -120,7 +117,8 @@ export default function CourseForm() {
             required
             value={formData.title}
             onChange={handleChange}
-            className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"
+            className="mt-1 block w-full px-3 py-2.5 border rounded-lg shadow-sm focus:ring-2 focus:outline-none"
+            style={{ borderColor: '#E5E5E5' }}
             placeholder="e.g., Complete Web Development Bootcamp"
           />
         </div>
@@ -137,7 +135,8 @@ export default function CourseForm() {
             rows={6}
             value={formData.description}
             onChange={handleChange}
-            className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"
+            className="mt-1 block w-full px-3 py-2.5 border rounded-lg shadow-sm focus:ring-2 focus:outline-none"
+            style={{ borderColor: '#E5E5E5' }}
             placeholder="Describe what students will learn in this course..."
           />
         </div>
@@ -155,7 +154,8 @@ export default function CourseForm() {
               required
               value={formData.category}
               onChange={handleChange}
-              className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"
+               className="mt-1 block w-full px-3 py-2.5 border rounded-lg shadow-sm focus:ring-2 focus:outline-none"
+               style={{ borderColor: '#E5E5E5' }}
               placeholder="e.g., Web Development, Data Science"
             />
           </div>
@@ -170,7 +170,8 @@ export default function CourseForm() {
               required
               value={formData.level}
               onChange={handleChange}
-              className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"
+               className="mt-1 block w-full px-3 py-2.5 border rounded-lg shadow-sm focus:ring-2 focus:outline-none"
+               style={{ borderColor: '#E5E5E5' }}
             >
               <option value="beginner">Beginner</option>
               <option value="intermediate">Intermediate</option>
@@ -194,7 +195,8 @@ export default function CourseForm() {
               step="0.01"
               value={formData.price}
               onChange={handleChange}
-              className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"
+               className="mt-1 block w-full px-3 py-2.5 border rounded-lg shadow-sm focus:ring-2 focus:outline-none"
+               style={{ borderColor: '#E5E5E5' }}
               placeholder="e.g., 5000"
             />
           </div>
@@ -209,7 +211,8 @@ export default function CourseForm() {
               required
               value={formData.currency}
               onChange={handleChange}
-              className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"
+               className="mt-1 block w-full px-3 py-2.5 border rounded-lg shadow-sm focus:ring-2 focus:outline-none"
+               style={{ borderColor: '#E5E5E5' }}
             >
               <option value="KES">KES (Kenyan Shilling)</option>
               <option value="USD">USD (US Dollar)</option>
@@ -230,7 +233,8 @@ export default function CourseForm() {
               step="0.5"
               value={formData.duration_hours}
               onChange={handleChange}
-              className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"
+               className="mt-1 block w-full px-3 py-2.5 border rounded-lg shadow-sm focus:ring-2 focus:outline-none"
+               style={{ borderColor: '#E5E5E5' }}
               placeholder="e.g., 10"
             />
           </div>
@@ -247,7 +251,8 @@ export default function CourseForm() {
             name="thumbnail"
             value={formData.thumbnail}
             onChange={handleChange}
-            className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"
+            className="mt-1 block w-full px-3 py-2.5 border rounded-lg shadow-sm focus:ring-2 focus:outline-none"
+            style={{ borderColor: '#E5E5E5' }}
             placeholder="https://example.com/image.jpg"
           />
           <p className="mt-1 text-sm text-gray-500">
@@ -266,7 +271,8 @@ export default function CourseForm() {
             required
             value={formData.status}
             onChange={handleChange}
-            className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"
+            className="mt-1 block w-full px-3 py-2.5 border rounded-lg shadow-sm focus:ring-2 focus:outline-none"
+            style={{ borderColor: '#E5E5E5' }}
           >
             <option value="draft">Draft</option>
             <option value="published">Published</option>
@@ -278,18 +284,20 @@ export default function CourseForm() {
         </div>
 
         {/* Form Actions */}
-        <div className="flex items-center justify-end space-x-4 pt-4 border-t">
+        <div className="flex items-center justify-end space-x-4 pt-4 border-t" style={{ borderColor: '#E5E5E5' }}>
           <button
             type="button"
             onClick={() => navigate('/admin/courses')}
-            className="px-4 py-2 border border-gray-300 rounded-md text-gray-700 hover:bg-gray-50 font-medium"
+            className="px-4 py-2.5 border rounded-lg text-gray-700 hover:bg-gray-50 font-medium"
+            style={{ borderColor: '#E5E5E5' }}
           >
             Cancel
           </button>
           <button
             type="submit"
             disabled={loading}
-            className="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 font-medium disabled:opacity-50 disabled:cursor-not-allowed"
+            className="px-4 py-2.5 text-white rounded-lg font-medium disabled:opacity-50 disabled:cursor-not-allowed"
+            style={{ backgroundColor: '#00CED1' }}
           >
             {loading ? 'Saving...' : isEdit ? 'Update Course' : 'Create Course'}
           </button>
@@ -297,8 +305,8 @@ export default function CourseForm() {
       </form>
 
       {isEdit && (
-        <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
-          <p className="text-sm text-blue-800">
+        <div className="rounded-xl p-4 border" style={{ backgroundColor: '#F4E4C1', borderColor: '#E5E5E5', color: '#1F2937' }}>
+          <p className="text-sm">
             <strong>Next step:</strong> After saving, add video modules to this course from the Courses list.
           </p>
         </div>

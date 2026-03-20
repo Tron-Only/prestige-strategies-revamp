@@ -1,6 +1,9 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { api } from '@/services/api';
+import AdminPageHeader from '@/components/admin/AdminPageHeader';
+import AdminListToolbar from '@/components/admin/AdminListToolbar';
+import AdminStatusPill from '@/components/admin/AdminStatusPill';
 
 interface Course {
   id: number;
@@ -59,34 +62,21 @@ export default function CoursesList() {
     course.level.toLowerCase().includes(searchTerm.toLowerCase())
   );
 
-  const getStatusColor = (status: string) => {
-    switch (status) {
-      case 'published':
-        return { backgroundColor: '#D1FAE5', color: '#065F46' };
-      case 'draft':
-        return { backgroundColor: '#FEF3C7', color: '#92400E' };
-      case 'archived':
-        return { backgroundColor: '#F3F4F6', color: '#6B7280' };
-      default:
-        return { backgroundColor: '#F3F4F6', color: '#6B7280' };
-    }
-  };
-
   return (
     <div className="space-y-6">
-      <div className="flex items-center justify-between">
-        <div>
-          <h1 className="text-3xl font-bold" style={{ color: '#00CED1' }}>Courses Management</h1>
-          <p className="mt-2" style={{ color: '#6B7280' }}>Manage courses and modules</p>
-        </div>
-        <Link
-          to="/admin/courses/new"
-          className="px-4 py-2 text-white rounded font-medium transition-opacity hover:opacity-90"
-          style={{ backgroundColor: '#00CED1' }}
-        >
-          Create New Course
-        </Link>
-      </div>
+      <AdminPageHeader
+        title="Courses Management"
+        description="Manage courses and modules"
+        actions={
+          <Link
+            to="/admin/courses/new"
+            className="px-4 py-2.5 text-white rounded-lg font-medium transition-opacity hover:opacity-90"
+            style={{ backgroundColor: '#00CED1' }}
+          >
+            Create New Course
+          </Link>
+        }
+      />
 
       {error && (
         <div className="bg-red-50 border border-red-200 px-4 py-3 rounded" style={{ color: '#DC2626' }}>
@@ -95,22 +85,15 @@ export default function CoursesList() {
       )}
 
       {/* Filters and Search */}
-      <div className="bg-white rounded shadow-sm p-6" style={{ borderColor: '#E5E5E5' }}>
-        <div className="flex flex-col md:flex-row gap-4">
-          <div className="flex-1">
-            <input
-              type="text"
-              placeholder="Search courses by title, category, or level..."
-              value={searchTerm}
-              onChange={(e) => setSearchTerm(e.target.value)}
-              className="w-full px-4 py-2 border rounded focus:ring-2 focus:outline-none"
-              style={{ borderColor: '#E5E5E5' }}
-            />
-          </div>
-          <div className="flex gap-2">
+      <AdminListToolbar
+        searchPlaceholder="Search courses by title, category, or level..."
+        searchTerm={searchTerm}
+        onSearchChange={setSearchTerm}
+        filters={
+          <>
             <button
               onClick={() => setFilter('all')}
-              className="px-4 py-2 rounded font-medium transition-opacity"
+              className="px-4 py-2.5 rounded-lg font-medium transition-opacity"
               style={
                 filter === 'all'
                   ? { backgroundColor: '#00CED1', color: '#FFFFFF' }
@@ -121,7 +104,7 @@ export default function CoursesList() {
             </button>
             <button
               onClick={() => setFilter('published')}
-              className="px-4 py-2 rounded font-medium transition-opacity"
+              className="px-4 py-2.5 rounded-lg font-medium transition-opacity"
               style={
                 filter === 'published'
                   ? { backgroundColor: '#10B981', color: '#FFFFFF' }
@@ -132,7 +115,7 @@ export default function CoursesList() {
             </button>
             <button
               onClick={() => setFilter('draft')}
-              className="px-4 py-2 rounded font-medium transition-opacity"
+              className="px-4 py-2.5 rounded-lg font-medium transition-opacity"
               style={
                 filter === 'draft'
                   ? { backgroundColor: '#F59E0B', color: '#FFFFFF' }
@@ -143,7 +126,7 @@ export default function CoursesList() {
             </button>
             <button
               onClick={() => setFilter('archived')}
-              className="px-4 py-2 rounded font-medium transition-opacity"
+              className="px-4 py-2.5 rounded-lg font-medium transition-opacity"
               style={
                 filter === 'archived'
                   ? { backgroundColor: '#6B7280', color: '#FFFFFF' }
@@ -152,9 +135,9 @@ export default function CoursesList() {
             >
               Archived
             </button>
-          </div>
-        </div>
-      </div>
+          </>
+        }
+      />
 
       {/* Courses Table */}
       {loading ? (
@@ -166,7 +149,7 @@ export default function CoursesList() {
           <p style={{ color: '#6B7280' }}>No courses found</p>
         </div>
       ) : (
-        <div className="bg-white rounded shadow-sm overflow-hidden">
+        <div className="bg-white rounded-xl shadow-sm overflow-hidden border" style={{ borderColor: '#E5E5E5' }}>
           <table className="min-w-full divide-y" style={{ borderColor: '#E5E5E5' }}>
             <thead style={{ backgroundColor: '#F8F6F0' }}>
               <tr>
@@ -214,12 +197,10 @@ export default function CoursesList() {
                     <div className="text-sm" style={{ color: '#6B7280' }}>{course.duration_hours}h</div>
                   </td>
                   <td className="px-6 py-4 whitespace-nowrap">
-                    <span
-                      className="px-2 inline-flex text-xs leading-5 font-semibold rounded-full"
-                      style={getStatusColor(course.status)}
-                    >
-                      {course.status}
-                    </span>
+                    <AdminStatusPill
+                      label={course.status}
+                      tone={course.status === 'published' ? 'green' : course.status === 'draft' ? 'amber' : 'gray'}
+                    />
                   </td>
                   <td className="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
                     <Link

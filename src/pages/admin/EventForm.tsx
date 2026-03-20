@@ -1,6 +1,7 @@
 import { useState, useEffect, type FormEvent } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { api } from '@/services/api';
+import AdminPageHeader from '@/components/admin/AdminPageHeader';
 
 interface EventFormData {
   title: string;
@@ -87,14 +88,10 @@ export default function EventForm() {
 
   return (
     <div className="space-y-6">
-      <div>
-        <h1 className="text-3xl font-bold text-gray-900">
-          {isEdit ? 'Edit Event' : 'Create New Event'}
-        </h1>
-        <p className="mt-2 text-gray-600">
-          {isEdit ? 'Update event details' : 'Add a new event or workshop'}
-        </p>
-      </div>
+      <AdminPageHeader
+        title={isEdit ? 'Edit Event' : 'Create New Event'}
+        description={isEdit ? 'Update event details' : 'Add a new event or workshop'}
+      />
 
       {error && (
         <div className="bg-red-50 border border-red-200 text-red-600 px-4 py-3 rounded">
@@ -102,7 +99,7 @@ export default function EventForm() {
         </div>
       )}
 
-      <form onSubmit={handleSubmit} className="bg-white rounded-lg shadow p-6 space-y-6">
+      <form onSubmit={handleSubmit} className="bg-white rounded-xl border shadow-sm p-6 space-y-6" style={{ borderColor: '#E5E5E5' }}>
         {/* Event Title */}
         <div>
           <label htmlFor="title" className="block text-sm font-medium text-gray-700">
@@ -115,7 +112,8 @@ export default function EventForm() {
             required
             value={formData.title}
             onChange={handleChange}
-            className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-purple-500 focus:border-purple-500"
+            className="mt-1 block w-full px-3 py-2.5 border rounded-lg shadow-sm focus:ring-2 focus:outline-none"
+            style={{ borderColor: '#E5E5E5' }}
             placeholder="e.g., Career Development Workshop"
           />
         </div>
@@ -133,7 +131,8 @@ export default function EventForm() {
               required
               value={formData.date}
               onChange={handleChange}
-              className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-purple-500 focus:border-purple-500"
+              className="mt-1 block w-full px-3 py-2.5 border rounded-lg shadow-sm focus:ring-2 focus:outline-none"
+              style={{ borderColor: '#E5E5E5' }}
             />
           </div>
 
@@ -148,7 +147,8 @@ export default function EventForm() {
               required
               value={formData.time}
               onChange={handleChange}
-              className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-purple-500 focus:border-purple-500"
+              className="mt-1 block w-full px-3 py-2.5 border rounded-lg shadow-sm focus:ring-2 focus:outline-none"
+              style={{ borderColor: '#E5E5E5' }}
             />
           </div>
 
@@ -162,7 +162,8 @@ export default function EventForm() {
               required
               value={formData.event_type}
               onChange={handleChange}
-              className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-purple-500 focus:border-purple-500"
+              className="mt-1 block w-full px-3 py-2.5 border rounded-lg shadow-sm focus:ring-2 focus:outline-none"
+              style={{ borderColor: '#E5E5E5' }}
             >
               <option value="Workshop">Workshop</option>
               <option value="Seminar">Seminar</option>
@@ -186,7 +187,8 @@ export default function EventForm() {
             required
             value={formData.location}
             onChange={handleChange}
-            className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-purple-500 focus:border-purple-500"
+            className="mt-1 block w-full px-3 py-2.5 border rounded-lg shadow-sm focus:ring-2 focus:outline-none"
+            style={{ borderColor: '#E5E5E5' }}
             placeholder="e.g., Nairobi Convention Center or Online (Zoom)"
           />
         </div>
@@ -203,7 +205,8 @@ export default function EventForm() {
             rows={6}
             value={formData.description}
             onChange={handleChange}
-            className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-purple-500 focus:border-purple-500"
+            className="mt-1 block w-full px-3 py-2.5 border rounded-lg shadow-sm focus:ring-2 focus:outline-none"
+            style={{ borderColor: '#E5E5E5' }}
             placeholder="Describe the event, agenda, speakers, and what attendees will learn..."
           />
         </div>
@@ -220,7 +223,8 @@ export default function EventForm() {
             required
             value={formData.registration_url}
             onChange={handleChange}
-            className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-purple-500 focus:border-purple-500"
+            className="mt-1 block w-full px-3 py-2.5 border rounded-lg shadow-sm focus:ring-2 focus:outline-none"
+            style={{ borderColor: '#E5E5E5' }}
             placeholder="https://example.com/register"
           />
           <p className="mt-1 text-sm text-gray-500">
@@ -239,7 +243,8 @@ export default function EventForm() {
             required
             value={formData.status}
             onChange={handleChange}
-            className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-purple-500 focus:border-purple-500"
+            className="mt-1 block w-full px-3 py-2.5 border rounded-lg shadow-sm focus:ring-2 focus:outline-none"
+            style={{ borderColor: '#E5E5E5' }}
           >
             <option value="active">Active</option>
             <option value="inactive">Inactive</option>
@@ -250,18 +255,20 @@ export default function EventForm() {
         </div>
 
         {/* Form Actions */}
-        <div className="flex items-center justify-end space-x-4 pt-4 border-t">
+        <div className="flex items-center justify-end space-x-4 pt-4 border-t" style={{ borderColor: '#E5E5E5' }}>
           <button
             type="button"
             onClick={() => navigate('/admin/events')}
-            className="px-4 py-2 border border-gray-300 rounded-md text-gray-700 hover:bg-gray-50 font-medium"
+            className="px-4 py-2.5 border rounded-lg text-gray-700 hover:bg-gray-50 font-medium"
+            style={{ borderColor: '#E5E5E5' }}
           >
             Cancel
           </button>
           <button
             type="submit"
             disabled={loading}
-            className="px-4 py-2 bg-purple-600 text-white rounded-md hover:bg-purple-700 font-medium disabled:opacity-50 disabled:cursor-not-allowed"
+            className="px-4 py-2.5 text-white rounded-lg font-medium disabled:opacity-50 disabled:cursor-not-allowed"
+            style={{ backgroundColor: '#D4AF37' }}
           >
             {loading ? 'Saving...' : isEdit ? 'Update Event' : 'Create Event'}
           </button>

@@ -284,4 +284,22 @@
     }
 }
 
+/* Admin: flat, squared, low-friction styling */
+.admin-shell .rounded,
+.admin-shell .rounded-md,
+.admin-shell .rounded-lg,
+.admin-shell .rounded-xl,
+.admin-shell .rounded-2xl,
+.admin-shell .rounded-3xl {
+    border-radius: 0 !important;
+}
+
+.admin-shell .shadow,
+.admin-shell .shadow-sm,
+.admin-shell .shadow-md,
+.admin-shell .shadow-lg,
+.admin-shell .shadow-xl {
+    box-shadow: none !important;
+}
+
 /* End of global theme file */

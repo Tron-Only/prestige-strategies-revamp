@@ -2,6 +2,7 @@ import { useState, useEffect, type FormEvent } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { api } from '@/services/api';
 import { Plus, Trash2, Video } from 'lucide-react';
+import AdminPageHeader from '@/components/admin/AdminPageHeader';
 
 interface Module {
   id: number;
@@ -140,25 +141,29 @@ export default function ModuleManager() {
   return (
     <div className="space-y-6">
       {/* Header */}
-      <div className="flex items-center justify-between">
-        <div>
-          <button
-            onClick={() => navigate('/admin/courses')}
-            className="text-blue-600 hover:text-blue-800 mb-2 text-sm"
-          >
-            ← Back to Courses
-          </button>
-          <h1 className="text-3xl font-bold text-gray-900">Manage Course Modules</h1>
-          <p className="mt-2 text-gray-600">{course.title}</p>
-        </div>
-        <button
-          onClick={() => setShowAddForm(!showAddForm)}
-          className="flex items-center gap-2 px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 font-medium"
-        >
-          <Plus size={18} />
-          Add Module
-        </button>
-      </div>
+      <AdminPageHeader
+        title="Manage Course Modules"
+        description={course.title}
+        actions={
+          <div className="flex items-center gap-2">
+            <button
+              onClick={() => navigate('/admin/courses')}
+              className="px-4 py-2.5 rounded-lg border font-medium"
+              style={{ borderColor: '#E5E5E5', color: '#6B7280', backgroundColor: '#FFFFFF' }}
+            >
+              Back to Courses
+            </button>
+            <button
+              onClick={() => setShowAddForm(!showAddForm)}
+              className="flex items-center gap-2 px-4 py-2.5 text-white rounded-lg font-medium"
+              style={{ backgroundColor: '#00CED1' }}
+            >
+              <Plus size={18} />
+              Add Module
+            </button>
+          </div>
+        }
+      />
 
       {error && (
         <div className="bg-red-50 border border-red-200 text-red-600 px-4 py-3 rounded">
@@ -168,8 +173,8 @@ export default function ModuleManager() {
 
       {/* Add Module Form */}
       {showAddForm && (
-        <form onSubmit={handleAddModule} className="bg-white rounded-lg shadow p-6 space-y-4">
-          <h3 className="text-lg font-semibold text-gray-900">Add New Module</h3>
+        <form onSubmit={handleAddModule} className="bg-white rounded-xl border shadow-sm p-6 space-y-4" style={{ borderColor: '#E5E5E5' }}>
+          <h3 className="text-lg font-semibold" style={{ color: '#00CED1' }}>Add New Module</h3>
 
           <div>
             <label htmlFor="module-title" className="block text-sm font-medium text-gray-700">
@@ -181,7 +186,8 @@ export default function ModuleManager() {
               required
               value={newModule.title}
               onChange={(e) => setNewModule(prev => ({ ...prev, title: e.target.value }))}
-              className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"
+               className="mt-1 block w-full px-3 py-2.5 border rounded-lg shadow-sm focus:ring-2 focus:outline-none"
+               style={{ borderColor: '#E5E5E5' }}
               placeholder="e.g., Introduction to React Hooks"
             />
           </div>
@@ -196,7 +202,8 @@ export default function ModuleManager() {
               rows={3}
               value={newModule.description}
               onChange={(e) => setNewModule(prev => ({ ...prev, description: e.target.value }))}
-              className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"
+               className="mt-1 block w-full px-3 py-2.5 border rounded-lg shadow-sm focus:ring-2 focus:outline-none"
+               style={{ borderColor: '#E5E5E5' }}
               placeholder="Brief description of what this module covers..."
             />
           </div>
@@ -211,7 +218,8 @@ export default function ModuleManager() {
               required
               value={newModule.youtube_video_id}
               onChange={(e) => handleYouTubeUrlChange(e.target.value)}
-              className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"
+               className="mt-1 block w-full px-3 py-2.5 border rounded-lg shadow-sm focus:ring-2 focus:outline-none"
+               style={{ borderColor: '#E5E5E5' }}
               placeholder="https://www.youtube.com/watch?v=dQw4w9WgXcQ or dQw4w9WgXcQ"
             />
             <p className="mt-1 text-sm text-gray-500">
@@ -230,7 +238,8 @@ export default function ModuleManager() {
               min="1"
               value={newModule.duration_minutes}
               onChange={(e) => setNewModule(prev => ({ ...prev, duration_minutes: parseInt(e.target.value) || 0 }))}
-              className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"
+               className="mt-1 block w-full px-3 py-2.5 border rounded-lg shadow-sm focus:ring-2 focus:outline-none"
+               style={{ borderColor: '#E5E5E5' }}
               placeholder="e.g., 15"
             />
           </div>
@@ -251,36 +260,38 @@ export default function ModuleManager() {
             </div>
           )}
 
-          <div className="flex items-center justify-end space-x-4 pt-4 border-t">
+           <div className="flex items-center justify-end space-x-4 pt-4 border-t" style={{ borderColor: '#E5E5E5' }}>
             <button
               type="button"
               onClick={() => {
                 setShowAddForm(false);
                 setNewModule({ title: '', description: '', youtube_video_id: '', duration_minutes: 0 });
               }}
-              className="px-4 py-2 border border-gray-300 rounded-md text-gray-700 hover:bg-gray-50 font-medium"
+               className="px-4 py-2.5 border rounded-lg text-gray-700 hover:bg-gray-50 font-medium"
+               style={{ borderColor: '#E5E5E5' }}
             >
               Cancel
             </button>
             <button
               type="submit"
-              className="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 font-medium"
-            >
-              Add Module
-            </button>
+               className="px-4 py-2.5 text-white rounded-lg font-medium"
+               style={{ backgroundColor: '#00CED1' }}
+             >
+               Add Module
+             </button>
           </div>
         </form>
       )}
 
       {/* Modules List */}
       {modules.length === 0 ? (
-        <div className="bg-white rounded-lg shadow p-12 text-center">
+         <div className="bg-white rounded-xl border shadow-sm p-12 text-center" style={{ borderColor: '#E5E5E5' }}>
           <Video size={48} className="mx-auto text-gray-400 mb-4" />
           <p className="text-gray-500 text-lg font-medium">No modules yet</p>
           <p className="text-gray-400 mt-2">Add video modules to build your course content</p>
         </div>
       ) : (
-        <div className="bg-white rounded-lg shadow">
+         <div className="bg-white rounded-xl border shadow-sm" style={{ borderColor: '#E5E5E5' }}>
           <div className="p-6">
             <h3 className="text-lg font-semibold text-gray-900 mb-4">
               Course Modules ({modules.length})
@@ -289,12 +300,13 @@ export default function ModuleManager() {
               {modules.map((module, index) => (
                 <div
                   key={module.id}
-                  className="flex items-start gap-4 p-4 border border-gray-200 rounded-lg hover:border-blue-300 transition"
-                >
+                   className="flex items-start gap-4 p-4 border rounded-lg transition"
+                   style={{ borderColor: '#E5E5E5' }}
+                 >
                   {/* Order number */}
-                  <div className="flex-shrink-0 w-8 h-8 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center font-semibold">
-                    {index + 1}
-                  </div>
+                   <div className="flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center font-semibold" style={{ backgroundColor: '#F4E4C1', color: '#00CED1' }}>
+                     {index + 1}
+                   </div>
 
                   {/* Module info */}
                   <div className="flex-1 min-w-0">
@@ -308,12 +320,13 @@ export default function ModuleManager() {
 
                   {/* Actions */}
                   <div className="flex items-center gap-2">
-                    <button
-                      onClick={() => handleDeleteModule(module.id, module.title)}
-                      className="p-2 text-red-600 hover:bg-red-50 rounded-md transition"
-                      title="Delete module"
-                    >
-                      <Trash2 size={18} />
+                     <button
+                       onClick={() => handleDeleteModule(module.id, module.title)}
+                       className="p-2 rounded-md transition"
+                       style={{ color: '#DC2626', backgroundColor: '#FEF2F2' }}
+                       title="Delete module"
+                     >
+                       <Trash2 size={18} />
                     </button>
                   </div>
                 </div>
@@ -324,8 +337,8 @@ export default function ModuleManager() {
       )}
 
       {/* Info Box */}
-      <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
-        <p className="text-sm text-blue-800">
+      <div className="rounded-xl p-4 border" style={{ backgroundColor: '#F4E4C1', borderColor: '#E5E5E5', color: '#1F2937' }}>
+        <p className="text-sm">
           <strong>Tip:</strong> Modules will be displayed in the order they are added. Students will watch them sequentially.
         </p>
       </div>

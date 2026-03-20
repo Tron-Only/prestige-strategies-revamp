@@ -1,6 +1,7 @@
 import { useState, useEffect, type FormEvent } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { api } from '@/services/api';
+import AdminPageHeader from '@/components/admin/AdminPageHeader';
 
 interface JobFormData {
   title: string;
@@ -89,14 +90,10 @@ export default function JobForm() {
 
   return (
     <div className="space-y-6">
-      <div>
-        <h1 className="text-3xl font-bold text-gray-900">
-          {isEdit ? 'Edit Job' : 'Create New Job'}
-        </h1>
-        <p className="mt-2 text-gray-600">
-          {isEdit ? 'Update job posting details' : 'Add a new job posting'}
-        </p>
-      </div>
+      <AdminPageHeader
+        title={isEdit ? 'Edit Job' : 'Create New Job'}
+        description={isEdit ? 'Update job posting details' : 'Add a new job posting'}
+      />
 
       {error && (
         <div className="bg-red-50 border border-red-200 text-red-600 px-4 py-3 rounded">
@@ -104,7 +101,7 @@ export default function JobForm() {
         </div>
       )}
 
-      <form onSubmit={handleSubmit} className="bg-white rounded-lg shadow p-6 space-y-6">
+      <form onSubmit={handleSubmit} className="bg-white rounded-xl border shadow-sm p-6 space-y-6" style={{ borderColor: '#E5E5E5' }}>
         {/* Job Title */}
         <div>
           <label htmlFor="title" className="block text-sm font-medium text-gray-700">
@@ -117,7 +114,8 @@ export default function JobForm() {
             required
             value={formData.title}
             onChange={handleChange}
-            className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"
+            className="mt-1 block w-full px-3 py-2.5 border rounded-lg shadow-sm focus:ring-2 focus:outline-none"
+            style={{ borderColor: '#E5E5E5' }}
             placeholder="e.g., Senior Software Engineer"
           />
         </div>
@@ -134,7 +132,8 @@ export default function JobForm() {
             required
             value={formData.company}
             onChange={handleChange}
-            className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"
+            className="mt-1 block w-full px-3 py-2.5 border rounded-lg shadow-sm focus:ring-2 focus:outline-none"
+            style={{ borderColor: '#E5E5E5' }}
             placeholder="e.g., Tech Corp"
           />
         </div>
@@ -152,7 +151,8 @@ export default function JobForm() {
               required
               value={formData.location}
               onChange={handleChange}
-              className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"
+               className="mt-1 block w-full px-3 py-2.5 border rounded-lg shadow-sm focus:ring-2 focus:outline-none"
+               style={{ borderColor: '#E5E5E5' }}
               placeholder="e.g., Nairobi, Kenya"
             />
           </div>
@@ -167,7 +167,8 @@ export default function JobForm() {
               required
               value={formData.type}
               onChange={handleChange}
-              className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"
+               className="mt-1 block w-full px-3 py-2.5 border rounded-lg shadow-sm focus:ring-2 focus:outline-none"
+               style={{ borderColor: '#E5E5E5' }}
             >
               <option value="Full-time">Full-time</option>
               <option value="Part-time">Part-time</option>
@@ -190,7 +191,8 @@ export default function JobForm() {
             rows={6}
             value={formData.description}
             onChange={handleChange}
-            className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"
+            className="mt-1 block w-full px-3 py-2.5 border rounded-lg shadow-sm focus:ring-2 focus:outline-none"
+            style={{ borderColor: '#E5E5E5' }}
             placeholder="Describe the job role, responsibilities, and requirements..."
           />
         </div>
@@ -207,7 +209,8 @@ export default function JobForm() {
             rows={4}
             value={formData.requirements}
             onChange={handleChange}
-            className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"
+            className="mt-1 block w-full px-3 py-2.5 border rounded-lg shadow-sm focus:ring-2 focus:outline-none"
+            style={{ borderColor: '#E5E5E5' }}
             placeholder="List the qualifications and skills required..."
           />
         </div>
@@ -224,7 +227,8 @@ export default function JobForm() {
               name="salary_range"
               value={formData.salary_range}
               onChange={handleChange}
-              className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"
+               className="mt-1 block w-full px-3 py-2.5 border rounded-lg shadow-sm focus:ring-2 focus:outline-none"
+               style={{ borderColor: '#E5E5E5' }}
               placeholder="e.g., KES 80,000 - 120,000"
             />
           </div>
@@ -240,7 +244,8 @@ export default function JobForm() {
               required
               value={formData.application_url}
               onChange={handleChange}
-              className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"
+               className="mt-1 block w-full px-3 py-2.5 border rounded-lg shadow-sm focus:ring-2 focus:outline-none"
+               style={{ borderColor: '#E5E5E5' }}
               placeholder="https://example.com/apply"
             />
           </div>
@@ -257,7 +262,8 @@ export default function JobForm() {
             required
             value={formData.status}
             onChange={handleChange}
-            className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"
+            className="mt-1 block w-full px-3 py-2.5 border rounded-lg shadow-sm focus:ring-2 focus:outline-none"
+            style={{ borderColor: '#E5E5E5' }}
           >
             <option value="active">Active</option>
             <option value="inactive">Inactive</option>
@@ -268,18 +274,20 @@ export default function JobForm() {
         </div>
 
         {/* Form Actions */}
-        <div className="flex items-center justify-end space-x-4 pt-4 border-t">
+        <div className="flex items-center justify-end space-x-4 pt-4 border-t" style={{ borderColor: '#E5E5E5' }}>
           <button
             type="button"
             onClick={() => navigate('/admin/jobs')}
-            className="px-4 py-2 border border-gray-300 rounded-md text-gray-700 hover:bg-gray-50 font-medium"
+            className="px-4 py-2.5 border rounded-lg text-gray-700 hover:bg-gray-50 font-medium"
+            style={{ borderColor: '#E5E5E5' }}
           >
             Cancel
           </button>
           <button
             type="submit"
             disabled={loading}
-            className="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 font-medium disabled:opacity-50 disabled:cursor-not-allowed"
+            className="px-4 py-2.5 text-white rounded-lg font-medium disabled:opacity-50 disabled:cursor-not-allowed"
+            style={{ backgroundColor: '#00CED1' }}
           >
             {loading ? 'Saving...' : isEdit ? 'Update Job' : 'Create Job'}
           </button>

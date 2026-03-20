@@ -1,6 +1,9 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { api } from '@/services/api';
+import AdminPageHeader from '@/components/admin/AdminPageHeader';
+import AdminListToolbar from '@/components/admin/AdminListToolbar';
+import AdminStatusPill from '@/components/admin/AdminStatusPill';
 
 interface Job {
   id: number;
@@ -59,19 +62,19 @@ export default function JobsList() {
 
   return (
     <div className="space-y-6">
-      <div className="flex items-center justify-between">
-        <div>
-          <h1 className="text-3xl font-bold" style={{ color: '#00CED1' }}>Jobs Management</h1>
-          <p className="mt-2" style={{ color: '#6B7280' }}>Manage job postings</p>
-        </div>
-        <Link
-          to="/admin/jobs/new"
-          className="px-4 py-2 text-white rounded font-medium transition-opacity hover:opacity-90"
-          style={{ backgroundColor: '#00CED1' }}
-        >
-          Create New Job
-        </Link>
-      </div>
+      <AdminPageHeader
+        title="Jobs Management"
+        description="Manage job postings"
+        actions={
+          <Link
+            to="/admin/jobs/new"
+            className="px-4 py-2.5 text-white rounded-lg font-medium transition-opacity hover:opacity-90"
+            style={{ backgroundColor: '#00CED1' }}
+          >
+            Create New Job
+          </Link>
+        }
+      />
 
       {error && (
         <div className="bg-red-50 border border-red-200 px-4 py-3 rounded" style={{ color: '#DC2626' }}>
@@ -80,33 +83,22 @@ export default function JobsList() {
       )}
 
       {/* Filters and Search */}
-      <div className="bg-white rounded shadow-sm p-6" style={{ borderColor: '#E5E5E5' }}>
-        <div className="flex flex-col md:flex-row gap-4">
-          <div className="flex-1">
-            <input
-              type="text"
-              placeholder="Search jobs by title, company, or location..."
-              value={searchTerm}
-              onChange={(e) => setSearchTerm(e.target.value)}
-              className="w-full px-4 py-2 border rounded focus:ring-2 focus:outline-none"
-              style={{ borderColor: '#E5E5E5' }}
-            />
-          </div>
-          <div className="flex gap-2">
+      <AdminListToolbar
+        searchPlaceholder="Search jobs by title, company, or location..."
+        searchTerm={searchTerm}
+        onSearchChange={setSearchTerm}
+        filters={
+          <>
             <button
               onClick={() => setFilter('all')}
-              className="px-4 py-2 rounded font-medium transition-opacity"
-              style={
-                filter === 'all'
-                  ? { backgroundColor: '#00CED1', color: '#FFFFFF' }
-                  : { backgroundColor: '#F8F6F0', color: '#6B7280' }
-              }
+              className="px-4 py-2.5 rounded-lg font-medium transition-opacity"
+              style={filter === 'all' ? { backgroundColor: '#00CED1', color: '#FFFFFF' } : { backgroundColor: '#F8F6F0', color: '#6B7280' }}
             >
               All
             </button>
             <button
               onClick={() => setFilter('active')}
-              className="px-4 py-2 rounded font-medium transition-opacity"
+              className="px-4 py-2.5 rounded-lg font-medium transition-opacity"
               style={
                 filter === 'active'
                   ? { backgroundColor: '#10B981', color: '#FFFFFF' }
@@ -117,7 +109,7 @@ export default function JobsList() {
             </button>
             <button
               onClick={() => setFilter('inactive')}
-              className="px-4 py-2 rounded font-medium transition-opacity"
+              className="px-4 py-2.5 rounded-lg font-medium transition-opacity"
               style={
                 filter === 'inactive'
                   ? { backgroundColor: '#6B7280', color: '#FFFFFF' }
@@ -126,9 +118,9 @@ export default function JobsList() {
             >
               Inactive
             </button>
-          </div>
-        </div>
-      </div>
+          </>
+        }
+      />
 
       {/* Jobs Table */}
       {loading ? (
@@ -140,7 +132,7 @@ export default function JobsList() {
           <p style={{ color: '#6B7280' }}>No jobs found</p>
         </div>
       ) : (
-        <div className="bg-white rounded shadow-sm overflow-hidden">
+        <div className="bg-white rounded-xl shadow-sm overflow-hidden border" style={{ borderColor: '#E5E5E5' }}>
           <table className="min-w-full divide-y" style={{ borderColor: '#E5E5E5' }}>
             <thead style={{ backgroundColor: '#F8F6F0' }}>
               <tr>
@@ -180,16 +172,7 @@ export default function JobsList() {
                     <div className="text-sm" style={{ color: '#6B7280' }}>{job.type}</div>
                   </td>
                   <td className="px-6 py-4 whitespace-nowrap">
-                    <span
-                      className="px-2 inline-flex text-xs leading-5 font-semibold rounded-full"
-                      style={
-                        job.status === 'active'
-                          ? { backgroundColor: '#D1FAE5', color: '#065F46' }
-                          : { backgroundColor: '#F3F4F6', color: '#6B7280' }
-                      }
-                    >
-                      {job.status}
-                    </span>
+                    <AdminStatusPill label={job.status} tone={job.status === 'active' ? 'green' : 'gray'} />
                   </td>
                   <td className="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
                     <Link

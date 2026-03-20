@@ -26,20 +26,23 @@ export default function AdminLogin() {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center" style={{ backgroundColor: '#F8F6F0' }}>
-      <div className="max-w-md w-full space-y-8 p-8 bg-white rounded shadow-sm">
-        <div>
-          <h2 className="text-center text-3xl font-bold" style={{ color: '#00CED1' }}>
+    <div className="admin-shell min-h-screen flex items-center justify-center px-4" style={{ backgroundColor: '#F8F6F0' }}>
+      <div className="max-w-md w-full space-y-6 p-8 bg-white rounded-2xl border shadow-sm" style={{ borderColor: '#E5E5E5' }}>
+        <div className="text-center">
+          <p className="text-xs uppercase tracking-[0.16em] font-semibold" style={{ color: '#D4AF37' }}>
+            Secure Access
+          </p>
+          <h2 className="text-3xl font-bold mt-1" style={{ color: '#00CED1' }}>
             Admin Login
           </h2>
-          <p className="mt-2 text-center text-sm" style={{ color: '#6B7280' }}>
+          <p className="mt-2 text-sm" style={{ color: '#6B7280' }}>
             Prestige Strategies Dashboard
           </p>
         </div>
         
         <form className="mt-8 space-y-6" onSubmit={handleSubmit}>
           {error && (
-            <div className="bg-red-50 border border-red-200 px-4 py-3 rounded" style={{ color: '#DC2626' }}>
+            <div className="bg-red-50 border border-red-200 px-4 py-3 rounded-lg" style={{ color: '#DC2626' }}>
               {error}
             </div>
           )}
@@ -55,7 +58,7 @@ export default function AdminLogin() {
                 required
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                className="mt-1 block w-full px-3 py-2 border rounded shadow-sm focus:ring-2 focus:outline-none"
+                className="mt-1 block w-full px-3 py-2.5 border rounded-lg shadow-sm focus:ring-2 focus:outline-none"
                 style={{ borderColor: '#E5E5E5' }}
                 placeholder="admin@example.com"
               />
@@ -71,7 +74,7 @@ export default function AdminLogin() {
                 required
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
-                className="mt-1 block w-full px-3 py-2 border rounded shadow-sm focus:ring-2 focus:outline-none"
+                className="mt-1 block w-full px-3 py-2.5 border rounded-lg shadow-sm focus:ring-2 focus:outline-none"
                 style={{ borderColor: '#E5E5E5' }}
                 placeholder="••••••••"
               />
@@ -81,7 +84,7 @@ export default function AdminLogin() {
           <button
             type="submit"
             disabled={loading}
-            className="w-full flex justify-center py-2 px-4 border-0 rounded shadow-sm text-sm font-medium text-white focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed transition-opacity hover:opacity-90"
+            className="w-full flex justify-center py-2.5 px-4 border-0 rounded-lg shadow-sm text-sm font-medium text-white focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed transition-opacity hover:opacity-90"
             style={{ backgroundColor: '#00CED1' }}
           >
             {loading ? 'Signing in...' : 'Sign In'}

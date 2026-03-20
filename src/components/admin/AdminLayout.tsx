@@ -1,6 +1,6 @@
 import { Outlet, Link, useNavigate, useLocation } from 'react-router-dom';
 import { useAuth } from '@/contexts/AuthContext';
-import { LayoutDashboard, Briefcase, Calendar, GraduationCap, LogOut } from 'lucide-react';
+import { LayoutDashboard, Briefcase, Calendar, GraduationCap, FileText, LogOut } from 'lucide-react';
 
 export default function AdminLayout() {
   const { user, logout } = useAuth();
@@ -17,16 +17,20 @@ export default function AdminLayout() {
     { name: 'Jobs', path: '/admin/jobs', icon: Briefcase },
     { name: 'Events', path: '/admin/events', icon: Calendar },
     { name: 'Courses', path: '/admin/courses', icon: GraduationCap },
+    { name: 'Resources', path: '/admin/resources', icon: FileText },
   ];
 
   const isActive = (path: string) => location.pathname.startsWith(path);
 
+  const activeItem = navItems.find((item) => isActive(item.path));
+
   return (
-    <div className="flex h-screen" style={{ backgroundColor: '#F8F6F0' }}>
+    <div className="admin-shell flex h-screen" style={{ backgroundColor: '#F8F6F0' }}>
       {/* Sidebar */}
-      <aside className="w-64 bg-white shadow-sm flex flex-col" style={{ borderRight: '1px solid #E5E5E5' }}>
+      <aside className="w-72 bg-white shadow-sm flex flex-col" style={{ borderRight: '1px solid #E5E5E5' }}>
         <div className="p-6 border-b" style={{ borderColor: '#E5E5E5' }}>
-          <h1 className="text-xl font-bold" style={{ color: '#00CED1' }}>Prestige Admin</h1>
+          <p className="text-xs uppercase tracking-[0.14em] font-semibold" style={{ color: '#D4AF37' }}>Control Center</p>
+          <h1 className="text-xl font-bold mt-1" style={{ color: '#00CED1' }}>Prestige Admin</h1>
         </div>
         
         <nav className="p-4 space-y-2 flex-1">
@@ -34,7 +38,7 @@ export default function AdminLayout() {
             <Link
               key={item.path}
               to={item.path}
-              className={`flex items-center space-x-3 px-4 py-3 rounded transition ${
+              className={`flex items-center space-x-3 px-4 py-3 rounded-lg transition ${
                 isActive(item.path)
                   ? ''
                   : ''
@@ -69,8 +73,12 @@ export default function AdminLayout() {
 
       {/* Main Content */}
       <div className="flex-1 flex flex-col overflow-hidden">
+        <header className="bg-white border-b px-6 py-4" style={{ borderColor: '#E5E5E5' }}>
+          <p className="text-xs uppercase tracking-[0.12em] font-semibold" style={{ color: '#6B7280' }}>Admin Workspace</p>
+          <h2 className="text-lg font-semibold" style={{ color: '#00CED1' }}>{activeItem?.name || 'Dashboard'}</h2>
+        </header>
         {/* Page Content */}
-        <main className="flex-1 overflow-auto p-6">
+        <main className="flex-1 overflow-auto p-6 lg:p-8">
           <Outlet />
         </main>
       </div>
